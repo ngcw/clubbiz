@@ -1,0 +1,717 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"$time",
+				"verbose_$timeout	AngularJS"
+			],
+			[
+				"submit",
+				"submitted"
+			],
+			[
+				"partici",
+				"participant2Name"
+			],
+			[
+				"counter",
+				"counter"
+			],
+			[
+				"direc",
+				"verbose_directive	AngularJS"
+			],
+			[
+				"$modal",
+				"$modal"
+			],
+			[
+				"regist",
+				"registrationHandler"
+			],
+			[
+				"deleteNo",
+				"deleteNotificationInstanceModalCtrl"
+			],
+			[
+				"deleteNoti",
+				"deleteNotificationInstanceMondalCtrl"
+			],
+			[
+				"brac",
+				"bracket"
+			],
+			[
+				"accordi",
+				"accordion-group"
+			],
+			[
+				"accor",
+				"accordion-heading"
+			],
+			[
+				"tourn",
+				"tournamentCache"
+			],
+			[
+				"tour",
+				"tournamentId"
+			],
+			[
+				"toura",
+				"tournamentCache"
+			],
+			[
+				"a",
+				"a	Tag"
+			],
+			[
+				"$http",
+				"$http	AngularJS"
+			],
+			[
+				"User",
+				"UserSchema"
+			],
+			[
+				"$loca",
+				"$location	AngularJS"
+			],
+			[
+				"ang",
+				"angular-cookies"
+			],
+			[
+				"sci",
+				"script	Tag"
+			],
+			[
+				"bracket",
+				"bracket_object"
+			],
+			[
+				"match",
+				"matchID"
+			],
+			[
+				"arra",
+				"roundArray"
+			],
+			[
+				"lose",
+				"loseBracket"
+			],
+			[
+				"brack",
+				"bracketJSON"
+			],
+			[
+				"bracet",
+				"bracketJSON"
+			],
+			[
+				"np",
+				"nplayer"
+			],
+			[
+				"ng-",
+				"ng-app	AngularJS"
+			],
+			[
+				"community",
+				"community"
+			],
+			[
+				"href",
+				"href	Attr"
+			],
+			[
+				"das",
+				"dashboard_controller"
+			],
+			[
+				"ng-te",
+				"ng-textarea	AngularJS"
+			],
+			[
+				"ng-ic",
+				"ng-click	AngularJS"
+			],
+			[
+				"drawprofile",
+				"drawprofile"
+			],
+			[
+				"floor",
+				"floor_root"
+			],
+			[
+				"drawpril",
+				"drawprofile"
+			],
+			[
+				"matc",
+				"matchCount"
+			],
+			[
+				"draw",
+				"drawprofile"
+			],
+			[
+				"drawpro",
+				"drawprofile"
+			],
+			[
+				"selec",
+				"selectAll"
+			],
+			[
+				"pare",
+				"parentList"
+			],
+			[
+				"init",
+				"initialCount"
+			],
+			[
+				"play",
+				"playoffColumn"
+			],
+			[
+				"playoffC",
+				"playoffCount"
+			],
+			[
+				"playoffCo",
+				"playoffColumn"
+			],
+			[
+				"math",
+				"MATCH_TEM"
+			],
+			[
+				"par",
+				"parity"
+			],
+			[
+				"power",
+				"powerIncrementer"
+			],
+			[
+				"powe",
+				"powerDecrementer"
+			],
+			[
+				"require",
+				"requiredMatch"
+			],
+			[
+				"blank",
+				"blankSpaces"
+			],
+			[
+				"blan",
+				"blankSection"
+			],
+			[
+				"ex",
+				"excessSpacing"
+			],
+			[
+				"bla",
+				"blankSpaces"
+			],
+			[
+				"blak",
+				"blankSection"
+			],
+			[
+				"requre",
+				"requiredSpaces"
+			],
+			[
+				"req",
+				"requiredSpaces"
+			],
+			[
+				"sapce",
+				"spaceTally"
+			],
+			[
+				"requier",
+				"requires"
+			],
+			[
+				"generate",
+				"generate_knockout"
+			],
+			[
+				"tex",
+				"text-align"
+			],
+			[
+				"Mat",
+				"MATCH_TEM"
+			],
+			[
+				"dra",
+				"draw_match"
+			],
+			[
+				"nP",
+				"nPlayer"
+			],
+			[
+				"requ",
+				"requiredMatch"
+			],
+			[
+				"ceil",
+				"ceil_root"
+			],
+			[
+				"bye",
+				"byeTrig"
+			],
+			[
+				"playoff",
+				"Playoff"
+			],
+			[
+				"mat",
+				"match_row"
+			],
+			[
+				"p",
+				"p_slot"
+			],
+			[
+				"create",
+				"createElement"
+			],
+			[
+				"conver",
+				"converge"
+			],
+			[
+				"cei",
+				"ceil_root"
+			],
+			[
+				"floo",
+				"floor_root"
+			],
+			[
+				"ma",
+				"matchCount"
+			],
+			[
+				"even",
+				"evenFiller"
+			],
+			[
+				"lineTop",
+				"lineTopLeft"
+			],
+			[
+				"line",
+				"lineBtmLeft"
+			],
+			[
+				"pl",
+				"playoff"
+			],
+			[
+				"opt",
+				"option	Tag"
+			],
+			[
+				"allow",
+				"allow_byes"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"contents": "source 'https://rubygems.org'\n\n\n# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'\ngem 'rails', '4.1.0'\n# Use sqlite3 as the database for Active Record\ngem 'sqlite3'\n# Use SCSS for stylesheets\ngem 'sass-rails', '~> 4.0.3'\n# Use Uglifier as compressor for JavaScript assets\ngem 'uglifier', '>= 1.3.0'\n# Use CoffeeScript for .js.coffee assets and views\ngem 'coffee-rails', '~> 4.0.0'\n# See https://github.com/sstephenson/execjs#readme for more supported runtimes\n# gem 'therubyracer',  platforms: :ruby\n\n# Use jquery as the JavaScript library\ngem 'jquery-rails'\n# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks\ngem 'turbolinks'\n# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder\ngem 'jbuilder', '~> 2.0'\n# bundle exec rake doc:rails generates the API under doc/api.\ngem 'sdoc', '~> 0.4.0',          group: :doc\n\n# Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring\ngem 'spring',        group: :development\n\n# Bootstrap 3 Dependency\ngem 'bootstrap-sass', '~> 3.1.1'\n\n# Use ActiveModel has_secure_password\n# gem 'bcrypt', '~> 3.1.7'\n\n# Use unicorn as the app server\n# gem 'unicorn'\n\n# Use Capistrano for deployment\n# gem 'capistrano-rails', group: :development\n\n# Use debugger\ngem 'debugger', group: [:development, :test]\n\n",
+			"file": "Gemfile",
+			"file_size": -1,
+			"file_write_time": -1,
+			"settings":
+			{
+				"buffer_size": 1396,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 132.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/renlord/Desktop/clubbiz/Gemfile",
+		"/home/renlord/Desktop/tweeter/app/models/tweet.rb",
+		"/home/renlord/Downloads/tweeter/app/models/user.rb",
+		"/home/renlord/Downloads/tweeter/app/models/tweet.rb",
+		"/home/renlord/Desktop/clubbiz/app/models/event.rb",
+		"/home/renlord/Desktop/clubbiz/.gitignore",
+		"/home/renlord/Desktop/trivialtourney/public/app/views/main.html",
+		"/home/renlord/Desktop/trivialtourney/public/app/scripts/controllers/dashboardController.js",
+		"/home/renlord/Desktop/trivialtourney/public/app/views/tournament.html",
+		"/home/renlord/Desktop/trivialtourney/public/app/scripts/controllers/eventController.js",
+		"/home/renlord/Desktop/trivialtourney/public/app/index.html",
+		"/home/renlord/Desktop/trivialtourney/public/app/scripts/controllers/Main.js",
+		"/home/renlord/Desktop/trivialtourney/public/app/views/dashboard.html",
+		"/home/renlord/Desktop/trivialtourney/public/app/views/template/matchInstanceModal.html",
+		"/home/renlord/Desktop/trivialtourney/public/app/scripts/controllers/tournamentController.js",
+		"/home/renlord/Desktop/BlitzCloud/lib/controllers/api.js",
+		"/home/renlord/Desktop/trivialtourney/app/models/match.js",
+		"/home/renlord/Desktop/trivialtourney/public/app/views/template/participantListInstanceModal.html",
+		"/home/renlord/Desktop/trivialtourney/public/app/scripts/app-service.js",
+		"/home/renlord/Desktop/trivialtourney/app/models/tournament.js",
+		"/home/renlord/Desktop/trivialtourney/app/models/user.js",
+		"/home/renlord/Desktop/trivialtourney/public/app/scripts/app.js",
+		"/home/renlord/Desktop/trivialtourney/public/app/scripts/bracket.js",
+		"/home/renlord/Desktop/trivialtourney/public/app/views/createTournament.html",
+		"/home/renlord/Desktop/trivialtourney/app/models/participant.js",
+		"/home/renlord/Desktop/trivialtourney/app/models/generator/advancement.py",
+		"/home/renlord/Desktop/trivialtourney/public/app/views/event.html",
+		"/home/renlord/Desktop/trivialtourney/public/app/views/tournament-createevent.html",
+		"/home/renlord/Desktop/trivialtourney/app/models/generator/seeds.py",
+		"/home/renlord/Desktop/trivialtourney/public/app/styles/app-style.css",
+		"/home/renlord/Desktop/trivialtourney/app/models/collection.js",
+		"/home/renlord/Desktop/trivialtourney/config/socketserver.js",
+		"/home/renlord/.cache/.fr-jIAO7G/SlidePushMenus/js/classie.js",
+		"/home/renlord/Desktop/trivialtourney/app/models/event.js",
+		"/home/renlord/Desktop/trivialtourney/public/app/views/template/enrolmentInstanceModal.html",
+		"/home/renlord/Desktop/trivialtourney/public/app/scripts/bracketgen.js",
+		"/home/renlord/Desktop/trivialtourney/config/routes.js",
+		"/home/renlord/Desktop/trivialtourney/public/app/scripts/bracketDirectives.js",
+		"/home/renlord/Desktop/trivialtourney/public/app/styles/tourney-bracket.css",
+		"/home/renlord/Desktop/trivialtourney/public/app/views/template/leaveInstanceModal.html",
+		"/home/renlord/Desktop/trivialtourney/public/app/views/template/userEventInstanceModal.html",
+		"/home/renlord/Desktop/trivialtourney/public/app/views/enrolment.html",
+		"/home/renlord/Desktop/trivialtourney/app/models/bracket.js",
+		"/home/renlord/Desktop/trivialtourney/public/app/views/template/unpublishInstanceModal.html",
+		"/home/renlord/Desktop/trivialtourney/public/app/views/template/publishInstanceModal.html",
+		"/home/renlord/Desktop/trivialtourney/public/app/scripts/controllers/event.js",
+		"/home/renlord/Desktop/trivialtourney/public/app/views/profile.html",
+		"/home/renlord/Desktop/trivialtourney/public/app/views/template/deleteNotificationInstanceModal.html",
+		"/home/renlord/Desktop/trivialtourney/public/app/views/findTournament.html",
+		"/home/renlord/Downloads/angular-socket-io-master/socket.js",
+		"/home/renlord/.cache/.fr-8hRIYm/angular-socket-io-master/socket.js",
+		"/home/renlord/Desktop/trivialtourney/public/app/bower_components/socket.io-client/README.md",
+		"/home/renlord/Desktop/trivialtourney/public/app/bower_components/socket.io-client/package.json",
+		"/home/renlord/Desktop/trivialtourney/public/app/bower_components/socket.io-client/lib/socket.js",
+		"/home/renlord/Desktop/trivialtourney/public/app/bower_components/socket.io-client/dist/socket.io.js",
+		"/home/renlord/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
+		"/home/renlord/Desktop/trivialtourney/public/app/views/template/joinInstanceModal.html",
+		"/home/renlord/Desktop/trivialtourney/public/app/views/template/addGameInstanceModal",
+		"/home/renlord/Desktop/trivialtourney/public/app/views/template/joinModalInstance.html",
+		"/home/renlord/Desktop/trivialtourney/public/app/views/template/leaveModalInstance.html",
+		"/home/renlord/Desktop/trivialtourney/public/app/styles/main.css",
+		"/home/renlord/Desktop/trivialtourney/public/app/views/template/publishModalInstance.html",
+		"/home/renlord/Desktop/trivialtourney/public/app/views/template/deleteInstanceModal.html",
+		"/home/renlord/Desktop/trivialtourney/public/app/scripts/templates.js",
+		"/home/renlord/Desktop/trivialtourney/public/app/views/bracket.html",
+		"/home/renlord/Desktop/trivialtourney/public/app/scripts/trivialDirectives.js",
+		"/home/renlord/Desktop/temp.txt",
+		"/home/renlord/Desktop/trivialtourney/public/app/scripts/controllers/bracket.js",
+		"/home/renlord/Desktop/trivialtourney/public/bower.json",
+		"/home/renlord/Desktop/trivialstudios/public/index.html",
+		"/home/renlord/Desktop/trivialtourney/public/app/styles/bracketcreate.css",
+		"/home/renlord/Desktop/trivialtourney/public/app/views/tournament-create-event.html",
+		"/home/renlord/Desktop/trivialtourney/public/app/views/setting.html",
+		"/home/renlord/Desktop/trivialtourney/public/app/scripts/controllers/findTournament.js",
+		"/home/renlord/Desktop/trivialtourney/public/app/scripts/controllers/tournamentDirective.js",
+		"/home/renlord/Desktop/trivialtourney/TrivialTourney.js",
+		"/home/renlord/Desktop/trivialtourney/public/app/scripts/controllers/settingController.js",
+		"/home/renlord/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings",
+		"/home/renlord/Desktop/tourneymaster/public/app/views/profile.html",
+		"/home/renlord/Desktop/tourneymaster/public/app/styles/main.css",
+		"/home/renlord/Desktop/tourneymaster/public/app/styles/app-style.css",
+		"/home/renlord/Desktop/tourneymaster/public/app/scripts/controllers/dashboardController.js",
+		"/home/renlord/Desktop/tourneymaster/public/app/scripts/controllers/tournamentController.js",
+		"/home/renlord/Desktop/tourneymaster/public/app/views/main.html",
+		"/home/renlord/Desktop/tourneymaster/public/app/scripts/app-service.js",
+		"/home/renlord/Desktop/tourneymaster/config/routes.js",
+		"/home/renlord/Desktop/tourneymaster/public/app/scripts/app.js",
+		"/home/renlord/Desktop/tourneymaster/public/app/scripts/controllers/mainController.js",
+		"/home/renlord/Desktop/tourneymaster/public/app/views/createTournament.html",
+		"/home/renlord/Desktop/tourneymaster/app/models/tournament.js",
+		"/home/renlord/Desktop/tourneymaster/public/app/index.html",
+		"/home/renlord/Desktop/tourneymaster/public/app/bower_components/angular-bootstrap/ui-bootstrap-tpls.js",
+		"/home/renlord/Desktop/tourneymaster/public/app/scripts/app-templates.js",
+		"/home/renlord/Desktop/tourneymaster/public/app/scripts/app-template.js",
+		"/home/renlord/Desktop/tourneymaster/public/Gruntfile.js",
+		"/home/renlord/Desktop/tourneymaster/front-app/app/scripts/app.js",
+		"/home/renlord/Desktop/tourneymaster/front-app/app/scripts/controllers/dashboardController.js",
+		"/home/renlord/Desktop/tourneymaster/front-app/app/views/dashboard.html",
+		"/home/renlord/Desktop/tourneymaster/front-app/app/views/main.html",
+		"/home/renlord/Desktop/tourneymaster/front-app/app/styles/main.css",
+		"/home/renlord/Downloads/ui-bootstrap-tpls-0.10.0.js",
+		"/home/renlord/Desktop/tourneymaster/front-app/app/styles/dashboard.css",
+		"/home/renlord/Desktop/tourneymaster/front-app/app/bower_components/angular-bootstrap/ui-bootstrap.js",
+		"/home/renlord/Downloads/ui-bootstrap-tpls-0.10.0.min.js",
+		"/home/renlord/Desktop/tourneymaster/front-app/bower.json",
+		"/home/renlord/Desktop/tourneymaster/front-app/app/bower_components/angular-ui/build/angular-ui.js",
+		"/home/renlord/Desktop/tourneymaster/front-app/app/index.html",
+		"/home/renlord/Desktop/tourneymaster/front-app/app/scripts/controllers/tournamentController.js",
+		"/home/renlord/Desktop/tourneymaster/config/socketserver.js",
+		"/home/renlord/Desktop/tourneymaster/app/controllers/user.js",
+		"/home/renlord/Desktop/tourneymaster/app/controllers/bracketgen.js",
+		"/home/renlord/Desktop/tourneymaster/app/models/user.js",
+		"/home/renlord/Desktop/tourneymaster/app/models/task.js",
+		"/home/renlord/Desktop/tourneymaster/public/css/app/dashboard.css",
+		"/home/renlord/Desktop/tourneymaster/public/component/dashboard/dashboardController.js",
+		"/home/renlord/Desktop/tourneymaster/public/component/tournament/tournament.html",
+		"/home/renlord/Desktop/tourneymaster/public/component/tournament/tournamentController.js",
+		"/home/renlord/Desktop/tourneymaster/public/index.css",
+		"/home/renlord/Desktop/tourneymaster/public/index.html",
+		"/home/renlord/Desktop/tourneymaster/public/component/dashboard/dashboard.html",
+		"/home/renlord/Desktop/tourneymaster/app/views/home.jade",
+		"/home/renlord/Desktop/tourneymaster/public/app.js",
+		"/home/renlord/Desktop/tourneymaster/bracket_generator/bracketGeneratorD3.js",
+		"/home/renlord/Desktop/tourneymaster/bracket_generator/bracket-template.htm",
+		"/home/renlord/Desktop/tourneymaster/bracket_generator/bracketEdit.js",
+		"/home/renlord/Desktop/tourneymaster/bracket_generator/bracketAnimation.js",
+		"/home/renlord/Desktop/tourneymaster/public/css/app/app-style.css",
+		"/home/renlord/Desktop/tourneymaster/public/css/docs.css"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"UserService",
+			"enrolmentInstance",
+			"id",
+			"print",
+			";\n",
+			"SocketService.forward",
+			"SocketService.on",
+			"eventtype",
+			"draw",
+			"typeahead",
+			"deleteInstance",
+			"delete",
+			"$scope.tournament.games",
+			"$scope.tournament.games.event",
+			"events",
+			"event",
+			"select",
+			"btford.socket",
+			"$scope.match = function(string) {\n		if (string.match(userEmail))\n			$scope.nameMatch = true;\n		else\n			$scope.nameMatch = false;\n	}\n\n	$scope.final = function() {\n		var data = {\n			tournamentId: tournamentId\n		}\n		$http.post('/api/tournament/join', data)\n			.success(function() {\n				$modalInstance.close();\n			})\n	}",
+			"bracketCtrl",
+			"Delete",
+			"test",
+			"socket",
+			"socket.on",
+			"io",
+			"io.on",
+			"on",
+			"removeList",
+			"forward",
+			"list",
+			"socket.list",
+			"list",
+			"removeListener",
+			"SocketService.on",
+			"on",
+			"tournament",
+			"5",
+			"					\n",
+			"create",
+			"createTournament",
+			"Game",
+			"GameDict",
+			"\n        	",
+			"modalinstance",
+			"dashboardCtrl",
+			"modal",
+			"server",
+			"font-awesome",
+			"main.css",
+			"accordion",
+			"accrodian",
+			"accordian",
+			"	\n",
+			">\n",
+			"profile-card",
+			"navbar",
+			"htm",
+			"inverse",
+			"maxcdn",
+			"y",
+			"<script src=\"http://d3js.org/d3.v3.min.js\"></script>\n	<script src=\"bracketGeneratorD3.js\"></script>\n	<script src=\"bracketAnimation.js\"></script>",
+			"MATCH_ID",
+			"special",
+			"lineTy",
+			"draw_match",
+			"		status.setAttribute(\"class\", \"status_bar\");\n		status.setAttribute(\"name\", \"status\");"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "Gemfile",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1396,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 24.0
+	},
+	"input":
+	{
+		"height": 32.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"project": "clubbiz.sublime-project",
+	"replace":
+	{
+		"height": 44.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 234.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
