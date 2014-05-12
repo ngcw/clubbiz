@@ -42,3 +42,6 @@ gem 'debugger', group: [:development, :test]
 # Bootstrap 3
 gem 'bootstrap-sass', '~> 3.1.1'
 
+# Devise for User Authentication Handling
+gem 'devise'
+
