@@ -336,13 +336,21 @@
 	"buffers":
 	[
 		{
-			"contents": "source 'https://rubygems.org'\n\n\n# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'\ngem 'rails', '4.1.0'\n# Use sqlite3 as the database for Active Record\ngem 'sqlite3'\n# Use SCSS for stylesheets\ngem 'sass-rails', '~> 4.0.3'\n# Use Uglifier as compressor for JavaScript assets\ngem 'uglifier', '>= 1.3.0'\n# Use CoffeeScript for .js.coffee assets and views\ngem 'coffee-rails', '~> 4.0.0'\n# See https://github.com/sstephenson/execjs#readme for more supported runtimes\n# gem 'therubyracer',  platforms: :ruby\n\n# Use jquery as the JavaScript library\ngem 'jquery-rails'\n# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks\ngem 'turbolinks'\n# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder\ngem 'jbuilder', '~> 2.0'\n# bundle exec rake doc:rails generates the API under doc/api.\ngem 'sdoc', '~> 0.4.0',          group: :doc\n\n# Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring\ngem 'spring',        group: :development\n\n# Bootstrap 3 Dependency\ngem 'bootstrap-sass', '~> 3.1.1'\n\n# Use ActiveModel has_secure_password\n# gem 'bcrypt', '~> 3.1.7'\n\n# Use unicorn as the app server\n# gem 'unicorn'\n\n# Use Capistrano for deployment\n# gem 'capistrano-rails', group: :development\n\n# Use debugger\ngem 'debugger', group: [:development, :test]\n\n",
-			"file": "Gemfile",
+			"contents": "class Admin < ActiveRecord::Base\n  # Include default devise modules. Others available are:\n  # :confirmable, :lockable, :timeoutable and :omniauthable\n  devise :database_authenticatable, :registerable,\n         :recoverable, :rememberable, :trackable, :validatable\n  belongs_to :users\nend\n",
+			"file": "app/models/admin.rb",
 			"file_size": -1,
 			"file_write_time": -1,
 			"settings":
 			{
-				"buffer_size": 1396,
+				"buffer_size": 289,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/renlord/Desktop/Studly/server/app/app.js",
+			"settings":
+			{
+				"buffer_size": 2899,
 				"line_ending": "Unix"
 			}
 		}
@@ -374,12 +382,24 @@
 	},
 	"file_history":
 	[
+		"/home/renlord/Desktop/clubbiz/test/controllers/clubs_controller_test.rb",
+		"/home/renlord/Desktop/clubbiz/db/migrate/20140511165513_create_club_registration_requests.rb",
+		"/home/renlord/Desktop/clubbiz/db/migrate/20140511164918_create_clubs.rb",
 		"/home/renlord/Desktop/clubbiz/Gemfile",
+		"/home/renlord/Desktop/clubbiz/config/environments/development.rb",
+		"/home/renlord/Desktop/clubbiz/config/routes.rb",
+		"/home/renlord/Desktop/clubbiz/app/views/layouts/application.html.erb",
+		"/home/renlord/Desktop/clubbiz/app/assets/stylesheets/untitled",
+		"/home/renlord/Desktop/clubbiz/app/assets/stylesheets/application.css",
+		"/home/renlord/Desktop/clubbiz/app/assets/stylesheets/application.css.scss",
+		"/home/renlord/Desktop/clubbiz/app/models/event.rb",
+		"/home/renlord/Desktop/clubbiz/.gitignore",
+		"/home/renlord/Desktop/clubbiz/Gemfile.lock",
+		"/home/renlord/Desktop/clubbiz/app/assets/javascripts/application.js",
+		"/home/renlord/Desktop/clubbiz/config/secrets.yml",
 		"/home/renlord/Desktop/tweeter/app/models/tweet.rb",
 		"/home/renlord/Downloads/tweeter/app/models/user.rb",
 		"/home/renlord/Downloads/tweeter/app/models/tweet.rb",
-		"/home/renlord/Desktop/clubbiz/app/models/event.rb",
-		"/home/renlord/Desktop/clubbiz/.gitignore",
 		"/home/renlord/Desktop/trivialtourney/public/app/views/main.html",
 		"/home/renlord/Desktop/trivialtourney/public/app/scripts/controllers/dashboardController.js",
 		"/home/renlord/Desktop/trivialtourney/public/app/views/tournament.html",
@@ -489,19 +509,7 @@
 		"/home/renlord/Desktop/tourneymaster/app/models/task.js",
 		"/home/renlord/Desktop/tourneymaster/public/css/app/dashboard.css",
 		"/home/renlord/Desktop/tourneymaster/public/component/dashboard/dashboardController.js",
-		"/home/renlord/Desktop/tourneymaster/public/component/tournament/tournament.html",
-		"/home/renlord/Desktop/tourneymaster/public/component/tournament/tournamentController.js",
-		"/home/renlord/Desktop/tourneymaster/public/index.css",
-		"/home/renlord/Desktop/tourneymaster/public/index.html",
-		"/home/renlord/Desktop/tourneymaster/public/component/dashboard/dashboard.html",
-		"/home/renlord/Desktop/tourneymaster/app/views/home.jade",
-		"/home/renlord/Desktop/tourneymaster/public/app.js",
-		"/home/renlord/Desktop/tourneymaster/bracket_generator/bracketGeneratorD3.js",
-		"/home/renlord/Desktop/tourneymaster/bracket_generator/bracket-template.htm",
-		"/home/renlord/Desktop/tourneymaster/bracket_generator/bracketEdit.js",
-		"/home/renlord/Desktop/tourneymaster/bracket_generator/bracketAnimation.js",
-		"/home/renlord/Desktop/tourneymaster/public/css/app/app-style.css",
-		"/home/renlord/Desktop/tourneymaster/public/css/docs.css"
+		"/home/renlord/Desktop/tourneymaster/public/component/tournament/tournament.html"
 	],
 	"find":
 	{
@@ -520,6 +528,9 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"clubid",
+			"clubId",
+			"id",
 			"UserService",
 			"enrolmentInstance",
 			"id",
@@ -593,42 +604,81 @@
 		"regex": false,
 		"replace_history":
 		[
+			"id",
+			"clubid",
+			"clubId"
 		],
 		"reverse": false,
 		"show_context": true,
 		"use_buffer2": true,
-		"whole_word": false,
+		"whole_word": true,
 		"wrap": true
 	},
+	"folders":
+	[
+		{
+			"follow_symlinks": true,
+			"path": "/home/renlord/Desktop/clubbiz"
+		}
+	],
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "Gemfile",
+					"file": "app/models/admin.rb",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1396,
+						"buffer_size": 289,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								289,
+								289
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Ruby/Ruby.tmLanguage"
+							"syntax": "Packages/Ruby/Ruby.tmLanguage",
+							"tab_size": 2
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/home/renlord/Desktop/Studly/server/app/app.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2899,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2113,
+								2113
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 1208.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -672,10 +722,10 @@
 	{
 		"height": 0.0
 	},
-	"project": "clubbiz.sublime-project",
+	"project": "",
 	"replace":
 	{
-		"height": 44.0
+		"height": 64.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -709,7 +759,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 234.0,
+	"side_bar_width": 160.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

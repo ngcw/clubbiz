@@ -3,8 +3,8 @@
 <table>
   <thead>
     <tr>
-      <th>Id</th>
       <th>Name</th>
+      <th>Clubid</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -12,8 +12,8 @@
   <tbody>
     <% @clubs.each do |club| %>
       <tr>
-        <td><%= club.id %></td>
         <td><%= club.name %></td>
+        <td><%= club.clubId %></td>
         <td><%= link_to 'Show', club %></td>
         <td><%= link_to 'Edit', edit_club_path(club) %></td>
         <td><%= link_to 'Destroy', club, method: :delete, data: { confirm: 'Are you sure?' } %></td>

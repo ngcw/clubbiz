@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :clubs
 
+  devise_for :users
   resources :events
 
   # The priority is based upon order of creation: first created -> highest priority.
