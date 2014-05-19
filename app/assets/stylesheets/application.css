@@ -16,6 +16,19 @@
  * Load all Bootstrap JavaScripts
  *=require bootstrap
  */
+.header
+{
+	width:80%;
+}
+.userInfo
+{
+	width:100px;
+	height:30px;
+	line-height:30px;
+	border:1px solid #000;
+	border-radius: 1px;
+	float:right;
+}
 .navi_opt div
 {
     width:80px;
@@ -36,4 +49,9 @@
 	float:left;
 	margin-left:10px;
 	margin-right:10px;
+}
+.event
+{
+	width:80%;
+	text-align: left;
 }
