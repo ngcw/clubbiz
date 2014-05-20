@@ -45,3 +45,5 @@ gem 'bootstrap-sass', '~> 3.1.1'
 # Devise for User Authentication Handling
 gem 'devise'
 
+# Paperclip for File Upload Handling
+gem 'paperclip', '~> 4.1'
