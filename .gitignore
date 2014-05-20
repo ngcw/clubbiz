@@ -17,3 +17,5 @@
 
 # Ignore all sublime-project files.
 *.sublime-project
+# Ignore project file
+/ .project
