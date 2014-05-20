@@ -17,3 +17,6 @@
 
 # Ignore all sublime-project files.
 *.sublime-project
+
+# ignore backups
+*.*~
