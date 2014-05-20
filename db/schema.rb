@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140512015344) do
+ActiveRecord::Schema.define(version: 20140520031609) do
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -52,6 +52,22 @@ ActiveRecord::Schema.define(version: 20140512015344) do
     t.integer  "clubId"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "owner_id"
+  end
+
+  create_table "clubs_Administrators", id: false, force: true do |t|
+    t.integer "club_id"
+    t.integer "administrator_id"
+  end
+
+  create_table "clubs_shared_events", id: false, force: true do |t|
+    t.integer "club_id"
+    t.integer "shared_event_id"
+  end
+
+  create_table "clubs_users", id: false, force: true do |t|
+    t.integer "club_id"
+    t.integer "user_id"
   end
 
   create_table "discussion_posts", force: true do |t|
@@ -73,6 +89,7 @@ ActiveRecord::Schema.define(version: 20140512015344) do
     t.string   "salesLocation"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "club_id"
   end
 
   create_table "users", force: true do |t|

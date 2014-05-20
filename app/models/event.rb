@@ -1,6 +1,8 @@
 class Event < ActiveRecord::Base
+<<<<<<< HEAD
   belongs_to :clubs
   has_many :users
+  has_and_belongs_to_many :sharedWithClubs, :class_name => 'Club', :foreien_key => 'shared_event_id'
   validates :name , presence:true
   validates :memberOnly , presence:true
   validates :date , presence:true
