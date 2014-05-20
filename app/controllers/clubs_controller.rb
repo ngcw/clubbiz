@@ -1,5 +1,6 @@
 class ClubsController < ApplicationController
   before_action :set_club, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:edit,:new,:update,:destroy]
 
   # GET /clubs
   # GET /clubs.json
@@ -25,14 +26,28 @@ class ClubsController < ApplicationController
   # POST /clubs.json
   def create
     @club = Club.new(club_params)
-
+    @club.approved = false
+    @club.owner_id = current_user.id
+    
+    ((params[:club][:administrators]).scan(/.+/)).each.with_index do |match, index|
+       admin = User.find_by(email: match.to_s)
+       if (admin)
+         @club.administrator_ids << admin.id
+       else
+         respond_to do |format|
+          format.html { render :new }
+          format.json { render json: @club.errors, status: :unprocessable_entity }
+        end
+        return
+       end
+    end
+    
     respond_to do |format|
       if @club.save
         format.html { redirect_to @club, notice: 'Club was successfully created.' }
         format.json { render :show, status: :created, location: @club }
       else
-        format.html { render :new }
-        format.json { render json: @club.errors, status: :unprocessable_entity }
+        
       end
     end
   end
@@ -69,6 +84,6 @@ class ClubsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def club_params
-      params.require(:club).permit(:name, :clubId)
+      params.require(:club).permit(:name)
     end
 end

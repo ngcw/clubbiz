@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140520043857) do
+ActiveRecord::Schema.define(version: 20140520045640) do
 
   create_table "annoucements", force: true do |t|
     t.text     "content"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 20140520043857) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "owner_id"
+    t.boolean  "approved"
   end
 
   create_table "clubs_Administrators", id: false, force: true do |t|
