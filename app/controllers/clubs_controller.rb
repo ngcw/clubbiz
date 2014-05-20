@@ -47,7 +47,8 @@ class ClubsController < ApplicationController
         format.html { redirect_to @club, notice: 'Club was successfully created.' }
         format.json { render :show, status: :created, location: @club }
       else
-        
+        format.html { render :new }
+        format.json { render json: @club.errors, status: :unprocessable_entity }
       end
     end
   end
