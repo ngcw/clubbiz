@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   devise_for :users
   resources :events
 
+  #Club Join
+  get     '/club/join/:id', to:         'clubs#join', as: 'join_club'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

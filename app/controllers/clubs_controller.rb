@@ -1,5 +1,5 @@
 class ClubsController < ApplicationController
-  before_action :set_club, only: [:show, :edit, :update, :destroy]
+  before_action :set_club, only: [:show, :edit, :update, :destroy, :join]
   before_action :authenticate_user!, only: [:edit,:new,:update,:destroy]
 
   # GET /clubs
@@ -76,6 +76,22 @@ class ClubsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  # Join club
+  def join
+    
+    respond_to do |format|
+      if @club.users.include? current_user
+        format.html { redirect_to @club, notice: 'Already member!' }
+        format.json { render :show, status: :created, location: @club }
+      else
+        @club.users << current_user
+        format.html { redirect_to @club, notice: 'Congratulation! You Joined the Club.' }
+        format.json { render :show, status: :created, location: @club }
+      end
+        
+    end
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -85,6 +101,6 @@ class ClubsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def club_params
-      params.require(:club).permit(:name)
+      params.require(:club).permit(:name, :description)
     end
 end

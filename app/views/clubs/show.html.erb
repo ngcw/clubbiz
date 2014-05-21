@@ -6,9 +6,11 @@
 </p>
 
 <p>
-  <strong>Clubid:</strong>
-  <%= @club.clubId %>
+  <strong>Description:</strong>
+  <%= @club.description %>
 </p>
 
-<%= link_to 'Edit', edit_club_path(@club) %> |
+
+<%= link_to "Edit Club Profile", edit_club_path(@club) %> |
+<%= link_to "Join Club", join_club_path(@club.id) %> |
 <%= link_to 'Back', clubs_path %>
