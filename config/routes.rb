@@ -1,13 +1,7 @@
 Rails.application.routes.draw do
-  get 'home/logout'
+  get 'about' => 'about#index'
 
-  get 'welcome/index'
-
-  get 'welcome/login'
-
-  get 'about/index'
-
-  get 'home/index'
+  get 'home' => 'home#index'
 
   resources :clubs
 
