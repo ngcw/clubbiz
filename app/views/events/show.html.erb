@@ -1,49 +1,54 @@
-<p id="notice"><%= notice %></p>
+<div id="eventLeft">
+	<div id="eventBanner">
+		<%= @event.bannerPath %>
+	</div>
+	<div id="eventImage">
+		<%= @event.imagePath %>
+	</div>
+	<div id="eventDetails">
+		<%= @event.name %></br>
+		<div id="detailsAlign">
+			Date:<%= @event.date %></br></br>
+			Venue:<%= @event.place %></br></br>
+			Member Only:<%= @event.memberOnly %></br></br>
+			Event Website:<%= @event.website %>
+		</div>
+	</div>
+	<div id="eventDetails2">
+		<div id="collab">
+			Attendees</br>
+			Clubs involved</br>
+			Network</br>
+		</div>
+		<div id="description">
+			Description
+		</div>
+		<div id="discussion">
+			Discussion
+		</div>
+	</div>
+	
+</div>
+<div id="eventRight">
+	<div id="adminTools">
+		Admin Tools</br></br></br>
+		Attendee List</br></br>
+		Manage Admins</br></br>
+		<%= link_to 'Edit', edit_event_path(@event) %> </br></br>
+		<%= link_to 'Destroy', @event, method: :delete, data: { confirm: 'Are you sure?' } %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @event.name %>
-</p>
+	</div>
+	<div id="ticketing">
+		<%= @event.price %></br></br>
+		<%= @event.salesLocation %></br>
+		<div id="terms">
+			
+		</div>
+		Follow</br></br>
+		Reserve Ticket
+	</div>
+	<%= link_to 'Back', events_path %>
+</div>
 
-<p>
-  <strong>Memberonly:</strong>
-  <%= @event.memberOnly %>
-</p>
 
-<p>
-  <strong>Date:</strong>
-  <%= @event.date %>
-</p>
 
-<p>
-  <strong>Place:</strong>
-  <%= @event.place %>
-</p>
-
-<p>
-  <strong>Price:</strong>
-  <%= @event.price %>
-</p>
-
-<p>
-  <strong>Website:</strong>
-  <%= @event.website %>
-</p>
-
-<p>
-  <strong>Imagepath:</strong>
-  <%= @event.imagePath %>
-</p>
-
-<p>
-  <strong>Bannerpath:</strong>
-  <%= @event.bannerPath %>
-</p>
-
-<p>
-  <strong>Saleslocation:</strong>
-  <%= @event.salesLocation %>
-</p>
-
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
