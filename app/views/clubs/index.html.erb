@@ -30,10 +30,12 @@
 
   <tbody>
     <% @clubs.each do |club| %>
-      <tr>
-        <td><%= link_to club.name, club %></td>
-        <td><%= club.description %></td>
-      </tr>
+	  <%if club.approved%>
+	    <tr>
+	      <td><%= link_to club.name, club %></td>
+	      <td><%= club.description %></td>
+	    </tr>
+      <%end%>
     <% end %>
   </tbody>
 </table>
