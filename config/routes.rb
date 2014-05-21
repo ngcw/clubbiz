@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'home/logout'
+
+  get 'welcome/index'
+
+  get 'welcome/login'
+
   get 'about/index'
 
   get 'home/index'
