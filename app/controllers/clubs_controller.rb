@@ -1,5 +1,5 @@
 class ClubsController < ApplicationController
-  before_action :set_club, only: [:show, :edit, :update, :destroy, :join]
+  before_action :set_club, only: [:show, :edit, :update, :destroy, :join, :leave, :approve]
   before_action :authenticate_user!, only: [:edit,:new,:update,:destroy]
 
   # GET /clubs
@@ -91,6 +91,22 @@ class ClubsController < ApplicationController
       end
         
     end
+  end
+  def leave
+    respond_to do |format|
+      if @club.users.include? current_user
+        @club.users.delete(current_user)
+        format.html { redirect_to @club, notice: 'You Left Club' }
+        format.json { render :show, status: :created, location: @club }
+      else   
+        format.html { redirect_to @club, notice: 'Already not Member!' }
+        format.json { render :show, status: :created, location: @club }
+      end
+    end
+  end
+  
+  def approve
+    @club.approved = true
   end
 
   private
