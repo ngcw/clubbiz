@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'about/index'
+
+  get 'home/index'
+
   resources :clubs
 
   devise_for :users
@@ -11,7 +15,7 @@ Rails.application.routes.draw do
   # root 'welcome#index'
 
   # root_url definition
-  root to: "clubs#index"
+  root to: "home#index"
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
