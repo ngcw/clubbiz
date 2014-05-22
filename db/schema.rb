@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140521104811) do
+ActiveRecord::Schema.define(version: 20140522075517) do
+
+  create_table "administrators", force: true do |t|
+    t.integer  "adminId"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "club_id"
+  end
+
+  add_index "administrators", ["club_id"], name: "index_administrators_on_club_id"
 
   create_table "annoucements", force: true do |t|
     t.text     "content"
@@ -37,11 +46,6 @@ ActiveRecord::Schema.define(version: 20140521104811) do
     t.integer  "owner_id"
     t.boolean  "approved"
     t.string   "description"
-  end
-
-  create_table "clubs_Administrators", id: false, force: true do |t|
-    t.integer "club_id"
-    t.integer "administrator_id"
   end
 
   create_table "clubs_shared_events", id: false, force: true do |t|

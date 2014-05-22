@@ -11,8 +11,22 @@
 </p>
 
 
-<%= link_to "Edit Club Profile", edit_club_path(@club) %> |
+
 <%= link_to "Join Club", join_club_path(@club.id) %> |
 <%= link_to "Leave Club", leave_club_path(@club.id) %> |
-<%= link_to "Deregister Club", @club, method: :delete, data: { confirm: 'Are you sure?' } %> |
+
+<!-- check if the current user is Administrator for the club /-->
+<%isAdmin = false%>
+<%@club.administrators.each do |admin|%>
+	<%if admin.adminId == current_user.id%>
+		<%isAdmin = true%>
+	<%end%>
+<%end%>
+<%if @club.owner_id == current_user.id%>
+	<%isAdmin = true%>
+<%end%>
+<%if isAdmin%>
+	<%= link_to "Edit Club Profile", edit_club_path(@club) %> |
+	<%= link_to "Deregister Club", @club, method: :delete, data: { confirm: 'Are you sure?' } %> |
+<%end%>
 <%= link_to 'Back', clubs_path %>

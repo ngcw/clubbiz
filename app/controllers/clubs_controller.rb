@@ -30,9 +30,13 @@ class ClubsController < ApplicationController
     @club.owner_id = current_user.id
     
     ((params[:club][:administrators]).scan(/.+/)).each.with_index do |match, index|
-       admin = User.find_by(email: match.to_s)
-       if (admin)
-         @club.administrator_ids << admin.id
+       admin = Administrator.new
+       adminUser = User.find_by(email: match.to_s)
+       
+       if (adminUser)
+         admin.adminId = adminUser.id
+         admin.save
+         @club.administrators << admin
        else
          respond_to do |format|
           format.html { render :new }
@@ -86,6 +90,7 @@ class ClubsController < ApplicationController
         format.json { render :show, status: :created, location: @club }
       else
         @club.users << current_user
+        @club.save
         format.html { redirect_to @club, notice: 'Congratulation! You Joined the Club.' }
         format.json { render :show, status: :created, location: @club }
       end
@@ -96,6 +101,7 @@ class ClubsController < ApplicationController
     respond_to do |format|
       if @club.users.include? current_user
         @club.users.delete(current_user)
+        @club.save
         format.html { redirect_to @club, notice: 'You Left Club' }
         format.json { render :show, status: :created, location: @club }
       else   
