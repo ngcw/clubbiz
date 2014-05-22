@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140522103022) do
+ActiveRecord::Schema.define(version: 20140522114609) do
 
   create_table "administrators", force: true do |t|
     t.integer  "adminId"
@@ -57,6 +57,11 @@ ActiveRecord::Schema.define(version: 20140522103022) do
     t.integer "administrator_id"
   end
 
+  create_table "clubs_followers", id: false, force: true do |t|
+    t.integer "club_id"
+    t.integer "follower_id"
+  end
+
   create_table "clubs_shared_events", id: false, force: true do |t|
     t.integer "club_id"
     t.integer "shared_event_id"
@@ -87,6 +92,13 @@ ActiveRecord::Schema.define(version: 20140522103022) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "club_id"
+  end
+
+  create_table "followers", force: true do |t|
+    t.string   "followId"
+    t.string   "integer"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "shared_events", force: true do |t|

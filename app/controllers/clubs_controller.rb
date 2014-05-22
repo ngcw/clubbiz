@@ -1,6 +1,6 @@
 class ClubsController < ApplicationController
-  before_action :set_club, only: [:show, :edit, :update, :destroy, :join, :leave, :approve]
-  before_action :authenticate_user!, only: [:edit,:new,:update,:destroy]
+  before_action :set_club, only: [:show, :edit, :update, :destroy, :join, :leave, :approve, :follow]
+  before_action :authenticate_user! #, only: [:edit,:new,:update,:destroy]
 
   # GET /clubs
   # GET /clubs.json
@@ -88,7 +88,6 @@ class ClubsController < ApplicationController
   
   # Join club
   def join
-    
     respond_to do |format|
       if @club.users.include? current_user
         format.html { redirect_to @club, notice: 'Already member!' }
@@ -98,10 +97,10 @@ class ClubsController < ApplicationController
         @club.save
         format.html { redirect_to @club, notice: 'Congratulation! You Joined the Club.' }
         format.json { render :show, status: :created, location: @club }
-      end
-        
+      end      
     end
   end
+  
   def leave
     respond_to do |format|
       if @club.users.include? current_user
@@ -116,6 +115,27 @@ class ClubsController < ApplicationController
     end
   end
   
+  def follow
+   #check if user alreay exist as admin
+   follower = Follower.find_by(followId: current_user.id)
+   if (!follower)
+     follower = Follower.new
+     follower.followId = current_user.id
+     follower.save
+   end
+
+    respond_to do |format|
+      if @club.followers.include? follower
+        format.html { redirect_to @club, notice: 'Already following!' }
+        format.json { render :show, status: :created, location: @club }
+      else
+        @club.followers << follower
+        @club.save
+        format.html { redirect_to @club, notice: 'You are now following the club.' }
+        format.json { render :show, status: :created, location: @club }
+      end     
+    end
+  end
   def approve
     @club.approved = true
   end

@@ -61,6 +61,29 @@
   </tbody>
 </table>
 <br>
+<h2>Followed Clubs</h2>
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+  	<%follower = Follower.find_by(followId: current_user.id)%>
+  	<%if follower%>
+	    <% follower.clubs.each do |club| %>
+	      <%if club.approved%>
+		      <tr>
+		        <td><%= link_to club.name, club %></td>
+		        <td><%= club.description %></td>
+		      </tr>
+	      <% end %>
+	    <% end %>
+    <%end%>
+  </tbody>
+</table>
+<br>
 
 <h2>All Clubs</h2>
 <table>
