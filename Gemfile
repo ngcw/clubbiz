@@ -47,4 +47,4 @@ gem 'bootstrap-sass', '~> 3.1.1'
 gem 'devise'
 
 # Paperclip for File Upload Handling
-gem 'paperclip', '~> 4.1'
+gem 'paperclip', :git => 'git://github.com/thoughtbot/paperclip.git'

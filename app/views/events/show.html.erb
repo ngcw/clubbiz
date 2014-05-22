@@ -1,9 +1,20 @@
 <div id="eventLeft">
+	<p id="notice"><%= notice %></p>
 	<div id="eventBanner">
-		<%= @event.bannerPath %>
+		<% if @event.banner.file? %>
+			<%= image_tag @event.banner.url , :class =>'bannerImg'%>
+		<% end %>
 	</div>
 	<div id="eventImage">
-		<%= @event.imagePath %>
+		<% if @event.image1.file? %>
+			<%= image_tag @event.image1.url , :class =>'Imgs'%>
+		<% end %>
+		<% if @event.image2.file? %>
+			<%= image_tag @event.image2.url , :class =>'Imgs'%>
+		<% end %>
+		<% if @event.image3.file? %>
+			<%= image_tag @event.image3.url , :class =>'Imgs'%>
+		<% end %>
 	</div>
 	<div id="eventDetails">
 		<%= @event.name %></br>
@@ -21,7 +32,7 @@
 			Network</br>
 		</div>
 		<div id="description">
-			Description
+			<%= @event.description %>
 		</div>
 		<div id="discussion">
 			Discussion
@@ -31,24 +42,29 @@
 </div>
 <div id="eventRight">
 	<div id="adminTools">
-		Admin Tools</br></br></br>
+		<h4>Admin Tools</h4>
 		Attendee List</br></br>
-		Manage Admins</br></br>
 		<%= link_to 'Edit', edit_event_path(@event) %> </br></br>
 		<%= link_to 'Destroy', @event, method: :delete, data: { confirm: 'Are you sure?' } %>
 
 	</div>
 	<div id="ticketing">
-		<%= @event.price %></br></br>
-		<%= @event.salesLocation %></br>
+		</br>Ticket Price: <%= @event.price %></br></br>
+		Sale Location: <%= @event.salesLocation %></br>
 		<div id="terms">
 			
 		</div>
 		Follow</br></br>
-		Reserve Ticket
+		<%= link_to "Reserve Ticket", reserve_event_path(@event) %>
 	</div>
-	<%= link_to 'Back', events_path %>
+	</br></br>
+	<%= link_to 'All Events', events_path %>
 </div>
-
-
-
+<script type="text/javascript">
+$(document).ready(function() {
+	$('#eventImage').cycle({
+		fx: 'fade'
+		
+	});
+});
+</script>

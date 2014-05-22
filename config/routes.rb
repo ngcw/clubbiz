@@ -1,22 +1,25 @@
 Rails.application.routes.draw do
-
   get 'about' => 'about#index'
 
   get 'home' => 'home#index'
 
+  resources :clubs
 
   devise_for :users
-  resources :events, :clubs, :dashboard
+  resources :events
 
   authenticated :user do
     root :to => 'home#index', :as => :authenticated_root
   end
   root :to => redirect('/users/sign_in')
 
-  #Club actionxs
+  #Club actions
+  get     '/club/join/:id',  to:           'clubs#join', as:    'join_club'
   get     '/club/leave/:id', to:           'clubs#leave', as:   'leave_club'
-  get     '/club/follow/:id', to:           'clubs#follow', as:  'follow_club'
   get     '/club/approve/:id', to:         'clubs#approve', as: 'approve_club'
+  
+  #Event actions
+  get     '/event/reserve/:id', to:         'events#reserve', as: 'reserve_event'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
