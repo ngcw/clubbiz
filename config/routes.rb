@@ -8,6 +8,11 @@ Rails.application.routes.draw do
   devise_for :users
   resources :events
 
+  authenticated :user do
+    root :to => 'home#index', :as => :authenticated_root
+  end
+  root :to => redirect('/users/sign_in')
+
   #Club actions
   get     '/club/join/:id',  to:           'clubs#join', as:    'join_club'
   get     '/club/leave/:id', to:           'clubs#leave', as:   'leave_club'
@@ -19,7 +24,7 @@ Rails.application.routes.draw do
   # root 'welcome#index'
 
   # root_url definition
-  root to: "home#index"
+  # root to: "home#index"
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
