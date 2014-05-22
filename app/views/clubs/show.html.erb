@@ -11,9 +11,13 @@
 </p>
 
 
+<%if @club.users.include? current_user%>
+	<%= link_to "Leave Club", leave_club_path(@club.id) %> |
+<%else%>
+	<%= link_to "Join Club", join_club_path(@club.id) %> |
+<%end%>
 
-<%= link_to "Join Club", join_club_path(@club.id) %> |
-<%= link_to "Leave Club", leave_club_path(@club.id) %> |
+<%= link_to "Follow", follow_club_path(@club.id) %> |
 
 <!-- check if the current user is Administrator for the club /-->
 <%isAdmin = false%>
@@ -24,9 +28,11 @@
 <%end%>
 <%if @club.owner_id == current_user.id%>
 	<%isAdmin = true%>
+	<%= link_to "Deregister Club", @club, method: :delete, data: { confirm: 'Are you sure?' } %> |
 <%end%>
+
 <%if isAdmin%>
 	<%= link_to "Edit Club Profile", edit_club_path(@club) %> |
-	<%= link_to "Deregister Club", @club, method: :delete, data: { confirm: 'Are you sure?' } %> |
+	
 <%end%>
 <%= link_to 'Back', clubs_path %>

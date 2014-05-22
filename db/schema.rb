@@ -11,16 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140522075517) do
+ActiveRecord::Schema.define(version: 20140522114609) do
 
   create_table "administrators", force: true do |t|
     t.integer  "adminId"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "club_id"
   end
 
-  add_index "administrators", ["club_id"], name: "index_administrators_on_club_id"
+  add_index "administrators", ["adminId"], name: "index_administrators_on_adminId", unique: true
+
+  create_table "administrators_clubs", id: false, force: true do |t|
+    t.integer "administrator_id"
+    t.integer "club_id"
+  end
 
   create_table "annoucements", force: true do |t|
     t.text     "content"
@@ -51,6 +55,11 @@ ActiveRecord::Schema.define(version: 20140522075517) do
   create_table "clubs_Administrators", id: false, force: true do |t|
     t.integer "club_id"
     t.integer "administrator_id"
+  end
+
+  create_table "clubs_followers", id: false, force: true do |t|
+    t.integer "club_id"
+    t.integer "follower_id"
   end
 
   create_table "clubs_shared_events", id: false, force: true do |t|
@@ -84,6 +93,21 @@ ActiveRecord::Schema.define(version: 20140522075517) do
     t.datetime "updated_at"
     t.integer  "club_id"
   end
+
+  create_table "followers", force: true do |t|
+    t.string   "followId"
+    t.string   "integer"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "shared_events", force: true do |t|
+    t.integer  "eventId"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "shared_events", ["eventId"], name: "index_shared_events_on_eventId", unique: true
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

@@ -15,6 +15,7 @@ Rails.application.routes.draw do
 
   #Club actionxs
   get     '/club/leave/:id', to:           'clubs#leave', as:   'leave_club'
+  get     '/club/follow/:id', to:           'clubs#follow', as:  'follow_club'
   get     '/club/approve/:id', to:         'clubs#approve', as: 'approve_club'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
