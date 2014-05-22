@@ -48,6 +48,11 @@ ActiveRecord::Schema.define(version: 20140522075517) do
     t.string   "description"
   end
 
+  create_table "clubs_Administrators", id: false, force: true do |t|
+    t.integer "club_id"
+    t.integer "administrator_id"
+  end
+
   create_table "clubs_shared_events", id: false, force: true do |t|
     t.integer "club_id"
     t.integer "shared_event_id"
