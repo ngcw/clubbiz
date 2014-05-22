@@ -30,12 +30,17 @@ class ClubsController < ApplicationController
     @club.owner_id = current_user.id
     
     ((params[:club][:administrators]).scan(/.+/)).each.with_index do |match, index|
-       admin = Administrator.new
-       adminUser = User.find_by(email: match.to_s)
        
+       adminUser = User.find_by(email: match.to_s)
+ 
        if (adminUser)
-         admin.adminId = adminUser.id
-         admin.save
+         #check if user alreay exist as admin
+         admin = Administrator.find_by(adminId: adminUser.id)
+         if (!admin)
+           admin = Administrator.new
+           admin.adminId = adminUser.id
+           admin.save
+         end
          @club.administrators << admin
        else
          respond_to do |format|
@@ -48,7 +53,7 @@ class ClubsController < ApplicationController
     
     respond_to do |format|
       if @club.save
-        format.html { redirect_to @club, notice: 'Club was successfully created.' }
+        format.html { redirect_to @club, notice: 'Club was successfully created. you will be notifed once approved' }
         format.json { render :show, status: :created, location: @club }
       else
         format.html { render :new }

@@ -5,5 +5,6 @@ class CreateSharedEvents < ActiveRecord::Migration
 
       t.timestamps
     end
+    add_index :shared_events, :eventId,   unique: true
   end
 end

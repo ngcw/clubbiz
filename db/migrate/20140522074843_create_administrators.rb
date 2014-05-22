@@ -5,5 +5,6 @@ class CreateAdministrators < ActiveRecord::Migration
 
       t.timestamps
     end
+    add_index :administrators, :adminId,   unique: true
   end
 end
