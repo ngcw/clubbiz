@@ -6,9 +6,13 @@
 </p>
 
 <p>
-  <strong>Clubid:</strong>
-  <%= @club.clubId %>
+  <strong>Description:</strong>
+  <%= @club.description %>
 </p>
 
-<%= link_to 'Edit', edit_club_path(@club) %> |
+
+<%= link_to "Edit Club Profile", edit_club_path(@club) %> |
+<%= link_to "Join Club", join_club_path(@club.id) %> |
+<%= link_to "Leave Club", leave_club_path(@club.id) %> |
+<%= link_to "Deregister Club", @club, method: :delete, data: { confirm: 'Are you sure?' } %> |
 <%= link_to 'Back', clubs_path %>
