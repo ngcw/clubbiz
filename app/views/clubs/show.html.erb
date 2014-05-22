@@ -10,6 +10,11 @@
   <%= @club.description %>
 </p>
 
+<p>
+  <strong>Founded:</strong>
+  <%= @club.created_at %>
+</p>
+
 
 <%if @club.users.include? current_user%>
 	<%= link_to "Leave Club", leave_club_path(@club.id) %> |

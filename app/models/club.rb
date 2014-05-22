@@ -7,4 +7,6 @@ class Club < ActiveRecord::Base
 
   has_many :events
   has_and_belongs_to_many :shared_events
+  
+  has_many :club_announcements
 end

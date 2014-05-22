@@ -8,5 +8,6 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :administrated, :class_name => 'Club', :foreign_key => 'administrator_id'
   has_and_belongs_to_many :clubs
   has_and_belongs_to_many :events
+  has_many :club_announcements
 
 end

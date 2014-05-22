@@ -1,0 +1,29 @@
+<h1>Listing club_announcements</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Content</th>
+      <th>Club</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @club_announcements.each do |club_announcement| %>
+      <tr>
+        <td><%= club_announcement.content %></td>
+        <td><%= club_announcement.club_id %></td>
+        <td><%= club_announcement.user_id %></td>
+        <td><%= link_to 'Show', club_announcement %></td>
+        <td><%= link_to 'Edit', edit_club_announcement_path(club_announcement) %></td>
+        <td><%= link_to 'Destroy', club_announcement, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Club announcement', new_club_announcement_path %>

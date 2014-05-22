@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :club_announcements
+
   get 'about' => 'about#index'
 
   get 'home' => 'home#index'
