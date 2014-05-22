@@ -60,7 +60,7 @@ ActiveRecord::Schema.define(version: 20140522123317) do
     t.string   "description"
   end
 
-  create_table "clubs_administrators", id: false, force: true do |t|
+  create_table "clubs_Administrators", id: false, force: true do |t|
     t.integer "club_id"
     t.integer "administrator_id"
   end

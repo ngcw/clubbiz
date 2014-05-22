@@ -1,22 +1,22 @@
 Rails.application.routes.draw do
-  resources :club_announcements
+
+  
 
   get 'about' => 'about#index'
 
   get 'home' => 'home#index'
 
-  resources :clubs
 
   devise_for :users
-  resources :events
+  resources :events, :clubs, :dashboard
+  resources :club_announcements
 
   authenticated :user do
     root :to => 'home#index', :as => :authenticated_root
   end
   root :to => redirect('/users/sign_in')
 
-  #Club actions
-  get     '/club/join/:id',  to:           'clubs#join', as:    'join_club'
+  #Club actionxs
   get     '/club/leave/:id', to:           'clubs#leave', as:   'leave_club'
   get     '/club/follow/:id', to:           'clubs#follow', as:  'follow_club'
   get     '/club/approve/:id', to:         'clubs#approve', as: 'approve_club'
