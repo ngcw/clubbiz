@@ -5,5 +5,5 @@ class Club < ActiveRecord::Base
   has_and_belongs_to_many :users
 
   has_many :events
-  has_and_belongs_to_many :sharedEvents, :class_name => 'Event', :foreien_key => 'shared_event_id'
+  has_and_belongs_to_many :shared_events
 end
