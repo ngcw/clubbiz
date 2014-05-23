@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   get 'home' => 'home#index'
 
-  devise_for :users
+  devise_for :users, :controllers => {:registrations => "registrations"}
   resources :events, :clubs, :dashboard
   resources :club_announcements
 
