@@ -11,6 +11,7 @@ class CreateEvents < ActiveRecord::Migration
       t.string :description
       t.string :termsConditions
       t.integer :total_tickets
+      t.integer :remaining_tickets
       t.timestamps
       
     end

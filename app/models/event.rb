@@ -1,7 +1,8 @@
+require "mathn"
 class Event < ActiveRecord::Base
 
   belongs_to :clubs
-  has_and_belongs_to_many :users
+  has_many :users, through: :reserve_tickets
   has_attached_file :banner, :styles => { :large => "600x300>" , :thumb => "100x100>"}, :default_url => "/images/:style/missing.png"
   validates_attachment_content_type :banner, :content_type => /\Aimage\/.*\Z/
   has_attached_file :image1, :styles => { :medium => "300x300>" , :thumb => "100x100>"}, :default_url => "/images/:style/missing.png"
@@ -14,4 +15,7 @@ class Event < ActiveRecord::Base
   validates :memberOnly , presence:true
   validates :date , presence:true
   validates :place , presence:true
+  def attendees
+    self.total_tickets - self.remaining_tickets 
+  end
 end

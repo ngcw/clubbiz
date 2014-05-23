@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   has_many :owned, :class_name => "Club", :foreign_key => "owner_id"
   has_and_belongs_to_many :administrated, :class_name => 'Club', :foreign_key => 'administrator_id'
   has_and_belongs_to_many :clubs
-  has_and_belongs_to_many :events
+  has_many :events, through: :reserve_tickets
   has_many :club_announcements
 
   def full_name

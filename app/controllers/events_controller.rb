@@ -26,6 +26,7 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
     @event.club_id = params[:club_id]
+    @event.remaining_tickets = params[:event][:total_tickets]
     respond_to do |format|
       if @event.save
         format.html { redirect_to @event, notice: 'Event was successfully created.' }
@@ -62,18 +63,24 @@ class EventsController < ApplicationController
   end
   # Reserve ticket
   def reserve
-    
+    @reserve = ReserveTicket.new
+    @reserve.event_id = @event.id
+    @reserve.user_id = current_user.id
+    @reserve.ticket_nums = params[:ticket_nums]
     respond_to do |format|
-      if current_user.events.include? @event
+      if @event.remaining_tickets - @reserve.ticket_nums < 0
+        format.html { redirect_to @event, notice: 'There are not enough available tickets!' }
+        format.json { render :show, status: :created, location: @event } 
+      elsif ReserveTicket.exists?(:user_id => current_user.id,:event_id => @event.id)
         format.html { redirect_to @event, notice: 'Already reserved ticket!' }
-        format.json { render :show, status: :created, location: @event }
+        format.json { render :show, status: :created, location: @event } 
       else
-        current_user.events << @event
-        
+        @reserve.save
+        tickets_left = @event.remaining_tickets - @reserve.ticket_nums
+        @event.update(remaining_tickets: tickets_left)
         format.html { redirect_to @event, notice: 'Congratulation! You Joined the Event.' }
         format.json { render :show, status: :created, location: @event }
       end
-        
     end
   end
   private
@@ -84,6 +91,7 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:name, :memberOnly, :date, :place, :price, :website, :banner, :image1, :image2, :image3, :salesLocation, :description, :termsConditions, :total_tickets, :club_id)
+      params.require(:event).permit(:name, :memberOnly, :date, :place, :price, :website, :banner, :image1, :image2, :image3, :salesLocation, :description, :termsConditions, :total_tickets, :club_id,:ticket_nums)
     end
+
 end

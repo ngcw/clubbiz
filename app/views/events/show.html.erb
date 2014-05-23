@@ -27,7 +27,8 @@
 	</div>
 	<div id="eventDetails2">
 		<div id="collab">
-			Attendees</br>
+			Attendees :<%= @event.attendees %></br>
+			Remaining Tickets :<%= @event.remaining_tickets %></br>
 			Clubs involved</br>
 			Network</br>
 		</div>
@@ -55,7 +56,11 @@
 			
 		</div>
 		Follow</br></br>
-		<%= link_to "Reserve Ticket", reserve_event_path(@event) %>
+		<%= form_tag(reserve_event_path, method:"get", multipart: true) do %>
+			No. of tickets:
+			<%= select_tag("ticket_nums", options_for_select([['1','1'],['2','2'],['3','3'],['4','4'],['5','5']])) %>
+			<%= submit_tag("Reserve Ticket") %>
+		<% end %>		
 	</div>
 	</br></br>
 	<%= link_to 'All Events', events_path %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140523122752) do
+ActiveRecord::Schema.define(version: 20140523173116) do
 
   create_table "administrators", force: true do |t|
     t.integer  "adminId"
@@ -93,6 +93,7 @@ ActiveRecord::Schema.define(version: 20140523122752) do
     t.string   "description"
     t.string   "termsConditions"
     t.integer  "total_tickets"
+    t.integer  "remaining_tickets"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "club_id"
@@ -114,12 +115,6 @@ ActiveRecord::Schema.define(version: 20140523122752) do
     t.datetime "image3_updated_at"
   end
 
-  create_table "events_users", id: false, force: true do |t|
-    t.integer "event_id"
-    t.integer "user_id"
-    t.integer "ticket_num"
-  end
-
   create_table "followers", force: true do |t|
     t.string   "followId"
     t.string   "integer"
@@ -128,6 +123,14 @@ ActiveRecord::Schema.define(version: 20140523122752) do
   end
 
   add_index "followers", ["followId"], name: "index_followers_on_followId", unique: true
+
+  create_table "reserve_tickets", force: true do |t|
+    t.integer  "event_id"
+    t.integer  "user_id"
+    t.integer  "ticket_nums"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "shared_events", force: true do |t|
     t.integer  "eventId"
