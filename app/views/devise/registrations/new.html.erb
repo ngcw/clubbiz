@@ -12,6 +12,15 @@
   <div><%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
 
+  <div><%= f.label :first_name %> <i> (we need your first name to confirm your identify) </i><br />
+    <%= f.text_field :first_name, autofocus: true %></div>
+
+  <div><%= f.label :last_name %> <i> (we need your last name to confirm your identify) </i><br />
+    <%= f.text_field :last_name, autofocus: true %></div>
+
+  <div><%= f.label :phone_number %> <i> (we need your phone number to confirm your identify) </i><br />
+    <%= f.text_field :phone_number, autofocus: true %></div>
+
   <div><%= f.submit "Sign up" %></div>
 <% end %>
 
