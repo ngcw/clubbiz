@@ -1,1 +1,1 @@
-json.extract! @event, :id, :name, :memberOnly, :date, :place, :price, :website, :imagePath, :bannerPath, :salesLocation, :created_at, :updated_at
+json.extract! @event, :id, :name, :memberOnly, :date, :place, :banner, :image1 , :image2, :image3, :price, :website, :salesLocation, :description, :termsConditions, :total_tickets, :ticket_num, :created_at, :updated_at

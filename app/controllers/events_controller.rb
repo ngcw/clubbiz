@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_event, only: [:show, :edit, :update, :destroy, :reserve]
+  before_action :authenticate_user!, only: [:edit,:new,:update,:reserve,:destroy]
   # GET /events
   # GET /events.json
   def index
@@ -25,7 +25,7 @@ class EventsController < ApplicationController
   # POST /events.json
   def create
     @event = Event.new(event_params)
-
+    @event.club_id = params[:club_id]
     respond_to do |format|
       if @event.save
         format.html { redirect_to @event, notice: 'Event was successfully created.' }
@@ -56,11 +56,26 @@ class EventsController < ApplicationController
   def destroy
     @event.destroy
     respond_to do |format|
-      format.html { redirect_to events_url, notice: 'Event was successfully destroyed.' }
+      format.html { redirect_to @event, notice: 'Event was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
-
+  # Reserve ticket
+  def reserve
+    
+    respond_to do |format|
+      if current_user.events.include? @event
+        format.html { redirect_to @event, notice: 'Already reserved ticket!' }
+        format.json { render :show, status: :created, location: @event }
+      else
+        current_user.events << @event
+        
+        format.html { redirect_to @event, notice: 'Congratulation! You Joined the Event.' }
+        format.json { render :show, status: :created, location: @event }
+      end
+        
+    end
+  end
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_event
@@ -69,6 +84,6 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:name, :memberOnly, :date, :place, :price, :website, :imagePath, :bannerPath, :salesLocation)
+      params.require(:event).permit(:name, :memberOnly, :date, :place, :price, :website, :banner, :image1, :image2, :image3, :salesLocation, :description, :termsConditions, :total_tickets, :club_id)
     end
 end

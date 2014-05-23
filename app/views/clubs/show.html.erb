@@ -23,6 +23,7 @@
 <%end%>
 
 <%= link_to "Follow", follow_club_path(@club.id) %> |
+<%= link_to 'New Event', new_event_path(:club_id => @club.clubId) %> |
 
 <!-- check if the current user is Administrator for the club /-->
 <%isAdmin = false%>

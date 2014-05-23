@@ -11,15 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20140522123317) do
 
   create_table "administrators", force: true do |t|
     t.integer  "adminId"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "club_id"
   end
 
-  add_index "administrators", ["adminId"], name: "index_administrators_on_adminId", unique: true
+  add_index "administrators", ["club_id"], name: "index_administrators_on_club_id"
 
   create_table "administrators_clubs", id: false, force: true do |t|
     t.integer "administrator_id"
@@ -100,6 +102,28 @@ ActiveRecord::Schema.define(version: 20140522123317) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "club_id"
+    t.string   "banner_file_name"
+    t.string   "banner_content_type"
+    t.integer  "banner_file_size"
+    t.datetime "banner_updated_at"
+    t.string   "image1_file_name"
+    t.string   "image1_content_type"
+    t.integer  "image1_file_size"
+    t.datetime "image1_updated_at"
+    t.string   "image2_file_name"
+    t.string   "image2_content_type"
+    t.integer  "image2_file_size"
+    t.datetime "image2_updated_at"
+    t.string   "image3_file_name"
+    t.string   "image3_content_type"
+    t.integer  "image3_file_size"
+    t.datetime "image3_updated_at"
+  end
+
+  create_table "events_users", id: false, force: true do |t|
+    t.integer "event_id"
+    t.integer "user_id"
+    t.integer "ticket_num"
   end
 
   create_table "followers", force: true do |t|
@@ -108,6 +132,8 @@ ActiveRecord::Schema.define(version: 20140522123317) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "followers", ["followId"], name: "index_followers_on_followId", unique: true
 
   create_table "shared_events", force: true do |t|
     t.integer  "eventId"

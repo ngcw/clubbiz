@@ -6,11 +6,6 @@
       <th>Memberonly</th>
       <th>Date</th>
       <th>Place</th>
-      <th>Price</th>
-      <th>Website</th>
-      <th>Imagepath</th>
-      <th>Bannerpath</th>
-      <th>Saleslocation</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -22,11 +17,7 @@
         <td><%= event.memberOnly %></td>
         <td><%= event.date %></td>
         <td><%= event.place %></td>
-        <td><%= event.price %></td>
-        <td><%= event.website %></td>
-        <td><%= event.imagePath %></td>
-        <td><%= event.bannerPath %></td>
-        <td><%= event.salesLocation %></td>
+  
         <td><%= link_to 'Show', event %></td>
       </tr>
     <% end %>
@@ -35,5 +26,5 @@
 
 <br>
 
-<%= link_to 'New Event', new_event_path %>
+
 
