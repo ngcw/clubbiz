@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140522114609) do
+ActiveRecord::Schema.define(version: 20140522115602) do
 
   create_table "administrators", force: true do |t|
     t.integer  "adminId"
@@ -53,11 +53,6 @@ ActiveRecord::Schema.define(version: 20140522114609) do
     t.string   "description"
   end
 
-  create_table "clubs_Administrators", id: false, force: true do |t|
-    t.integer "club_id"
-    t.integer "administrator_id"
-  end
-
   create_table "clubs_followers", id: false, force: true do |t|
     t.integer "club_id"
     t.integer "follower_id"
@@ -87,12 +82,35 @@ ActiveRecord::Schema.define(version: 20140522114609) do
     t.string   "place"
     t.float    "price"
     t.string   "website"
-    t.string   "imagePath"
-    t.string   "bannerPath"
     t.string   "salesLocation"
+    t.string   "description"
+    t.string   "termsConditions"
+    t.integer  "total_tickets"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "club_id"
+    t.string   "banner_file_name"
+    t.string   "banner_content_type"
+    t.integer  "banner_file_size"
+    t.datetime "banner_updated_at"
+    t.string   "image1_file_name"
+    t.string   "image1_content_type"
+    t.integer  "image1_file_size"
+    t.datetime "image1_updated_at"
+    t.string   "image2_file_name"
+    t.string   "image2_content_type"
+    t.integer  "image2_file_size"
+    t.datetime "image2_updated_at"
+    t.string   "image3_file_name"
+    t.string   "image3_content_type"
+    t.integer  "image3_file_size"
+    t.datetime "image3_updated_at"
+  end
+
+  create_table "events_users", id: false, force: true do |t|
+    t.integer "event_id"
+    t.integer "user_id"
+    t.integer "ticket_num"
   end
 
   create_table "followers", force: true do |t|
