@@ -24,7 +24,7 @@
   <%owner = User.find_by(id: @club.owner_id)%>
   <%= owner.full_name %><br>
   <%= owner.email%><br>
-  <%= owner.phone%><br>
+  <%= owner.phone_number%><br>
 </p>
 <br>
 <p><strong>Administrators</strong></p>
@@ -44,7 +44,7 @@
       <tr>
         <td><%= adminUser.full_name %></td>
         <td><%= adminUser.email %></td>
-        <td><%= adminUser.phone %></td>
+        <td><%= adminUser.phone_number %></td>
       </tr>
     <% end %>
   </tbody>
