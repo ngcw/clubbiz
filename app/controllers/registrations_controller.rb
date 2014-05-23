@@ -11,9 +11,8 @@ class RegistrationsController < Devise::RegistrationsController
 	def create
 		super
 		if (params[:user][:superadmin_password].match("clubbiz"))
-			params[:user][:csadmin] = true
-		else
-			params[:user][:csadmin] = false
+			@user.csadmin = true
+			@user.save
 		end
 	end
 

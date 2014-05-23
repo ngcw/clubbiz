@@ -137,7 +137,17 @@ class ClubsController < ApplicationController
     end
   end
   def approve
-    @club.approved = true
+    respond_to do |format|
+      if @club.approved
+        format.html { redirect_to @club, notice: 'Already Approved!' }
+        format.json { render :show, status: :created, location: @club }
+      else
+        @club.approved = true
+        @club.save
+        format.html { redirect_to @club, notice: 'Club was successfully approved' }
+        format.json { render :show, status: :created, location: @club }
+      end     
+    end
   end
 
   private
