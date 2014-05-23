@@ -19,15 +19,15 @@
 <h1>Members Area</h1>
 
 <h2>Commitee Details</h2>
+
+  <h3>Owner: </h3>
 <p>
-  <strong>Owner: </strong><br>
   <%owner = User.find_by(id: @club.owner_id)%>
-  <%= owner.full_name %><br>
-  <%= owner.email%><br>
-  <%= owner.phone_number%><br>
+  <%= owner.full_name %> |
+  <%= owner.email%> |
+  <%= owner.phone_number%>
 </p>
-<br>
-<p><strong>Administrators</strong></p>
+<h3>Administrators</h3>
 <table>
   <thead>
     <tr>
@@ -59,21 +59,21 @@
 <%end%>
 
 <%= link_to "Follow", follow_club_path(@club.id) %> |
-<%= link_to 'New Event', new_event_path(:club_id => @club.clubId) %> |
+
 
 <!-- check if the current user is Administrator for the club /-->
 <%isAdmin = false%>
-<%if @club.administrators.include? Administrator.find_by(adminId: current_user.id)%>
+<%if ((@club.administrators.include? Administrator.find_by(adminId: current_user.id)) || (@club.owner_id == current_user.id))%>
 	<%isAdmin = true%>
-<%end%>
-<%if @club.owner_id == current_user.id%>
-	<%isAdmin = true%>
-	<%= link_to "Deregister Club", @club, method: :delete, data: { confirm: 'Are you sure?' } %> |
 <%end%>
 
+
 <%if isAdmin%>
+	<%= link_to 'New Event', new_event_path(:club_id => @club.clubId) %> |
 	<%= link_to "Edit Club Profile", edit_club_path(@club) %> |
-	
+<%end%>
+<%if @club.owner_id == current_user.id%>
+	<%= link_to "Deregister Club", @club, method: :delete, data: { confirm: 'Are you sure?' } %> |
 <%end%>
 <%if current_user.csadmin%>
 	<%= link_to "Approve Club", approve_club_path(@club.id), data: { confirm: 'Are you sure?' }  %> |
