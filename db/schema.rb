@@ -17,9 +17,10 @@ ActiveRecord::Schema.define(version: 20140522114609) do
     t.integer  "adminId"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "club_id"
   end
 
-  add_index "administrators", ["adminId"], name: "index_administrators_on_adminId", unique: true
+  add_index "administrators", ["club_id"], name: "index_administrators_on_club_id"
 
   create_table "administrators_clubs", id: false, force: true do |t|
     t.integer "administrator_id"
@@ -100,6 +101,8 @@ ActiveRecord::Schema.define(version: 20140522114609) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "followers", ["followId"], name: "index_followers_on_followId", unique: true
 
   create_table "shared_events", force: true do |t|
     t.integer  "eventId"

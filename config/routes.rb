@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   end
   root :to => redirect('/users/sign_in')
 
-  #Club actionxs
+  #Club actions
   get     '/club/leave/:id', to:           'clubs#leave', as:   'leave_club'
   get     '/club/follow/:id', to:           'clubs#follow', as:  'follow_club'
   get     '/club/approve/:id', to:         'clubs#approve', as: 'approve_club'
