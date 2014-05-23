@@ -25,9 +25,12 @@
 
             <div class="collapse navbar-collapse" id="clubbiz-navbar">
                 <ul class="nav navbar-nav">
+                    <% if !current_user %>
                     <li><a href="/">Home</a></li>
+                    <% end %>
                     <li><a href="/about">About</a></li>
                     <% if current_user %>
+                    <li><a href="/dashboard">Dashboard</a></li>
                     <li><a href="/clubs">Clubs</a></li>
                     <li><a href="/events">Events</a></li>
                     <% end %>

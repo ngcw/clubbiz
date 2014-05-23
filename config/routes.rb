@@ -3,13 +3,11 @@ Rails.application.routes.draw do
 
   get 'home' => 'home#index'
 
-  resources :clubs
-
   devise_for :users
-  resources :events
+  resources :events, :clubs, :dashboard
 
   authenticated :user do
-    root :to => 'home#index', :as => :authenticated_root
+    root :to => 'dashboard#index', :as => :authenticated_root
   end
   root :to => redirect('/users/sign_in')
 
@@ -17,6 +15,7 @@ Rails.application.routes.draw do
   get     '/club/join/:id',  to:           'clubs#join', as:    'join_club'
   get     '/club/leave/:id', to:           'clubs#leave', as:   'leave_club'
   get     '/club/approve/:id', to:         'clubs#approve', as: 'approve_club'
+  get     '/club/follow/:id', to:           'clubs#follow', as:  'follow_club'
   
   #Event actions
   get     '/event/reserve/:id', to:         'events#reserve', as: 'reserve_event'
