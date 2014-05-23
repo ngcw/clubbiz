@@ -11,17 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 20140522123317) do
+ActiveRecord::Schema.define(version: 20140522124242) do
 
   create_table "administrators", force: true do |t|
     t.integer  "adminId"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "club_id"
   end
 
-  add_index "administrators", ["club_id"], name: "index_administrators_on_club_id"
+  add_index "administrators", ["adminId"], name: "index_administrators_on_adminId", unique: true
 
   create_table "administrators_clubs", id: false, force: true do |t|
     t.integer "administrator_id"
@@ -62,11 +60,6 @@ ActiveRecord::Schema.define(version: 20140522123317) do
     t.string   "description"
   end
 
-  create_table "clubs_Administrators", id: false, force: true do |t|
-    t.integer "club_id"
-    t.integer "administrator_id"
-  end
-
   create_table "clubs_followers", id: false, force: true do |t|
     t.integer "club_id"
     t.integer "follower_id"
@@ -96,9 +89,10 @@ ActiveRecord::Schema.define(version: 20140522123317) do
     t.string   "place"
     t.float    "price"
     t.string   "website"
-    t.string   "imagePath"
-    t.string   "bannerPath"
     t.string   "salesLocation"
+    t.string   "description"
+    t.string   "termsConditions"
+    t.integer  "total_tickets"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "club_id"
@@ -146,6 +140,9 @@ ActiveRecord::Schema.define(version: 20140522123317) do
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
+    t.string   "first_name"
+    t.string   "last_name"
+    t.integer  "phone_number"
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
