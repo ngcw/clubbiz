@@ -1,3 +1,12 @@
+<div class="row">
+  <div class="col-md-offset-8 col-md-4">
+    <%= link_to 'Find Clubs', all_club_path, class:"btn btn-primary", style:"float: right; text-decoration: none"%> 
+    <%= link_to 'Create Club', new_club_path, class:"btn btn-success", style:"float: right; text-decoration: none; margin-right: 15px" %>
+  </div>
+</div>
+
+<h2> Clubs Affiliated to You </h2>
+
 <h2>Owned Clubs</h2>
 <table>
   <thead>
@@ -82,7 +91,4 @@
   </tbody>
 </table>
 <br>
-<%= link_to 'All Clubs', all_club_path%> | 
 
-
-<%= link_to 'Start a Club', new_club_path %>
