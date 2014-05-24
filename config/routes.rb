@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  get 'csadmin/announce'
+  post 'csadmin/announce' => 'csadmin#announce'
 
   get 'dashboard/csadmin' => 'csadmin#index'
 

@@ -1,13 +1,66 @@
-<h1>Dashboard#csadmin</h1>
-<p>Find me in app/views/dashboard/csadmin.html.erb</p>
-<h3> Clubs Pending Approval </h3>
-<div class="list-group">
-    <% @approved_clubs.each do |approved_club| %>
-        <%= link_to approved_club.name, approved_club, :class => "list-group-item" %>
-    <% end %>
-    <% if @approved_clubs.size == 0 %>
-        <div class="list-group-item">
-            There are no clubs waiting for approval
-        </div>
-    <% end %>
+<div class="row">
+    <h1>C&amp;S Administrative Dashboard</h1>
+    <p> With great power comes great responsibility. <br> You are a C&amp;S Administrator, caretaker of all Clubs and Societies in the University of Melbourne.<br> 
+    </p>
 </div>
+
+<div class="row">
+    <h3> Clubs Pending Approval </h3>
+    <div class="list-group">
+        <% @approved_clubs.each do |approved_club| %>
+            <%= link_to approved_club.name, approved_club, :class => "list-group-item" %>
+        <% end %>
+        <% if @approved_clubs.size == 0 %>
+            <div class="list-group-item">
+                There are no clubs waiting for approval
+            </div>
+        <% end %>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-8">
+    <h3> Announcer Service </h3>
+    <form action="/csadmin/announce" method="post">
+        <p><small> Please select clubs to broadcast to: </small></p> 
+        <% @clubs.each do |club| %>
+        <div class="input-group">  
+            <span class="form-control"> <%= club.name %> </span>
+            <span class="input-group-addon">
+                <%= check_box_tag "club_id[]", checked_value=club.id %>
+            </span>
+        </div><!-- /input-group -->
+        <% end %>
+        <p><small> Please select sub-group to publish to:</small></p>
+        <div class="input-group">
+            <span class="form-control"> Admins + Owners </span>
+            <span class="input-group-addon">
+                <%= check_box_tag(:club_exec) %>
+            </span>
+        </div>
+        <div class="input-group">
+            <span class="form-control"> Members </span>
+            <span class="input-group-addon">
+                <%= check_box_tag(:club_all) %>
+            </span>
+        </div>
+
+        <p><small> Announcement Message </small></p>
+        <%= text_area_tag(:announcement, "", class:"col-md-12", size: "24x6") %>
+        <%= tag(:input, :type => "hidden", :name => request_forgery_protection_token.to_s, :value => form_authenticity_token) %> 
+        <br/>
+        <%= submit_tag("Announce", class:"btn btn-success btn-block") %>
+    </form>
+    </div>
+    <div class="col-md-4">
+        <h3> Announcements </h3>
+        <div class="list-group">
+        <% @announcements.each do |announcement| %>
+            <div class="list-group-item">
+                <%= announcement.message %>
+            </div>
+        <% end %>
+        </div>
+    </div>
+</div>
+
