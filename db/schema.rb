@@ -125,6 +125,8 @@ ActiveRecord::Schema.define(version: 20140523173116) do
   add_index "followers", ["followId"], name: "index_followers_on_followId", unique: true
 
   create_table "reserve_tickets", force: true do |t|
+    t.integer  "users_id"
+    t.integer  "events_id"
     t.integer  "event_id"
     t.integer  "user_id"
     t.integer  "ticket_nums"

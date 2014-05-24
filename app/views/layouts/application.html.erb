@@ -34,6 +34,9 @@
                     <li><a href="/clubs">Clubs</a></li>
                     <li><a href="/events">Events</a></li>
                     <% end %>
+                    <% if current_user && current_user.csadmin %>
+                    <li><a href="/dashboard/csadmin">C&amp;S Adminstration</a></li>
+                    <% end %>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li>

@@ -1,5 +1,10 @@
 <div class="container">
-  <h1>Welcome to your Dashboard!</h1>
+  <% if current_user.csadmin %>
+    <h1> Welcome Administrator <%= current_user.first_name %> </h1>
+  <% end %>
+  <% if !current_user.csadmin %>
+    <h1>Welcome to your Dashboard!</h1>
+  <% end %>
   <div class="row">
     <div class="col-md-6 col-xs-12">
       <h3> Your Clubs </h3>
@@ -12,7 +17,9 @@
     <div class="col-md-6 col-xs-12">
       <h3> Your Events </h3>
       <div class="list-group">
-        
+        <% @events.each do |event| %>
+          <%= link_to event.name, event, :class => "list-group-item" %>
+        <% end %>
       </div>
     </div>
   </div>
