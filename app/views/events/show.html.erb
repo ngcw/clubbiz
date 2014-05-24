@@ -29,8 +29,9 @@
 		<div id="collab">
 			Attendees :<%= @event.attendees %></br>
 			Remaining Tickets :<%= @event.remaining_tickets %></br>
-			Clubs involved</br>
-			Network</br>
+			Clubs involved : <% @shared_club.each do |club| %>
+								<%= club.name %></br>
+							 <% end %>
 		</div>
 		<div id="description">
 			<%= @event.description %>
@@ -41,21 +42,28 @@
 	</div>
 	
 </div>
+<!-- check if the current user is Administrator for the club /-->
+<%isAdmin = false%>
+<%if ((@curr_club.administrators.include? Administrator.find_by(adminId: current_user.id)) || (@curr_club.owner_id == current_user.id))%>
+	<%isAdmin = true%>
+<%end%>
+
 <div id="eventRight">
 	<div id="adminTools">
-		<h4>Admin Tools</h4>
-		Share Event Here</br></br>
-		<%= form_tag(share_event_path, method:"get", multipart: true) do %>
-			<% @unshared_club.each do |club| %>
-				<%= check_box_tag("club_list[]", value=club.id) %>
-				<%= label_tag(club.id, club.name)%>
-				</br>
+		<%if isAdmin%>
+			<h4>Admin Tools</h4>
+			Share Event Here</br></br>
+			<%= form_tag(share_event_path, method:"get", multipart: true) do %>
+				<% @unshared_club.each do |club| %>
+					<%= check_box_tag("club_list[]", value=club.id) %>
+					<%= label_tag(club.id, club.name)%>
+					</br>
+		        <% end %>
+		        <%= submit_tag("Share Event") %>
 	        <% end %>
-	        <%= submit_tag("Share Event") %>
-        <% end %>
-		<%= link_to 'Edit', edit_event_path(@event) %> </br></br>
-		<%= link_to 'Destroy', @event, method: :delete, data: { confirm: 'Are you sure?' } %>
-
+			<%= link_to 'Edit', edit_event_path(@event) %> </br></br>
+			<%= link_to 'Destroy', @event, method: :delete, data: { confirm: 'Are you sure?' } %>
+		<% end %>
 	</div>
 	<div id="ticketing">
 		</br>Ticket Price: <%= @event.price %></br></br>
@@ -64,11 +72,14 @@
 			
 		</div>
 		Follow</br></br>
-		<%= form_tag(reserve_event_path, method:"get", multipart: true) do %>
-			No. of tickets:
-			<%= select_tag("ticket_nums", options_for_select([['1','1'],['2','2'],['3','3'],['4','4'],['5','5']])) %>
-			<%= submit_tag("Reserve Ticket") %>
-		<% end %>		
+		<% if (@curr_club.users.include? current_user) || (!@event.memberOnly)%>
+
+			<%= form_tag(reserve_event_path, method:"get", multipart: true) do %>
+				No. of tickets:
+				<%= select_tag("ticket_nums", options_for_select([['1','1'],['2','2'],['3','3'],['4','4'],['5','5']])) %>
+				<%= submit_tag("Reserve Ticket") %>
+			<% end %>	
+		<% end %>	
 	</div>
 	</br></br>
 	<%= link_to 'All Events', events_path %>
