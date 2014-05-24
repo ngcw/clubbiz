@@ -163,12 +163,14 @@ ActiveRecord::Schema.define(version: 20140524130617) do
   end
 
   create_table "shared_events", force: true do |t|
+    t.integer  "events_id"
+    t.integer  "clubs_id"
     t.integer  "eventId"
+    t.integer  "clubId"
+    t.boolean  "approved"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  add_index "shared_events", ["eventId"], name: "index_shared_events_on_eventId", unique: true
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

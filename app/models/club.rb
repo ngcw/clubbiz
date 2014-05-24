@@ -5,8 +5,9 @@ class Club < ActiveRecord::Base
   has_and_belongs_to_many :users
   has_and_belongs_to_many :followers
 
+  has_many :events , through: :shared_events
   has_many :events
-  has_and_belongs_to_many :shared_events
+  has_many :shared_events
   
   has_many :club_announcements
 end

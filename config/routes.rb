@@ -25,8 +25,14 @@ Rails.application.routes.draw do
   get     '/club/follow/:id', to:           'clubs#follow', as:  'follow_club'
   get     '/club/index/', to:             'clubs#allclubs', as:  'all_club'
   
+
+  get     '/club/approveEvent/:id/:Eid', to:     'clubs#approveEvent', as: 'approve_event'
+  
   #Event actions
   get     '/event/reserve/:id', to:         'events#reserve', as: 'reserve_event'
+  get     '/event/share/:id'  , to:         'events#share',   as: 'share_event'  
+  # Dashboard Actions
+  get     '/dashboard/csadmin', to:         'dashboard#csadmin', as: 'csadmin_dashboard'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

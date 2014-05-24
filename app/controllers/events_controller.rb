@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: [:show, :edit, :update, :destroy, :reserve]
+  before_action :set_event, only: [:share,:show, :edit, :update, :destroy, :reserve]
   before_action :authenticate_user!, only: [:edit,:new,:update,:reserve,:destroy]
   # GET /events
   # GET /events.json
@@ -11,6 +11,13 @@ class EventsController < ApplicationController
   # GET /events/1.json
   def show
     @clubs = Club.where.not(id: @event.club_id)
+    @unshared_club ||= []
+    @clubs.each do |club|
+      if !SharedEvent.exists?(:eventId => @event.id, :clubId => club.id)
+        @unshared_club << club
+      end
+    end
+    
   end
 
   # GET /events/new
@@ -86,25 +93,17 @@ class EventsController < ApplicationController
   end
   
   def share
-   #check if event alreay shared as admin
-   shared = SharedEvent.find_by(eventId: @event.id)
-   if (!shared)
-     shared = SharedEvent.new
-     shared.eventId = @event.id
-     shared.save
-   end
-
-    respond_to do |format|
-      if @club.shared.include? shared
-        format.html { redirect_to @event, notice: 'Event already shared to #{@club.name}' }
-        format.json { render :show, status: :created, location: @event }
-      else
-        @club.shared << shared
-        @club.save
-        format.html { redirect_to @event, notice: 'Event successfully shared.' }
-        format.json { render :show, status: :created, location: @event }
-      end     
+    params[:club_list].each do |clubid|
+      shared = SharedEvent.new
+      shared.approved = false
+      shared.eventId = @event.id
+      shared.clubId = clubid
+      shared.save
     end
+    respond_to do |format|
+      format.html { redirect_to @event, notice: 'Event successfully shared.' }
+      format.json { render :show, status: :created, location: @event }
+    end    
   end
   private
     # Use callbacks to share common setup or constraints between actions.
