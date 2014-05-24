@@ -11,12 +11,25 @@ class ClubsController < ApplicationController
   # GET /clubs/1
   # GET /clubs/1.json
   def show
+    # pending shared events
     @shared_events = SharedEvent.where(clubId: @club.id, approved: false)
     @pendingrequest ||= []
     @shared_events.each do |event|
       event_item = Event.where(id: event.eventId).take
       @pendingrequest << event_item
     end
+    # approved shared events
+    @approved_events = SharedEvent.where(clubId: @club.id, approved: true)
+    @approved_list ||= []
+    @approved_events.each do |event|
+      event_item = Event.where(id: event.eventId).take
+      @approved_list << event_item
+    end
+    # hosted events
+    @hosted_events = Event.where(club_id: @club.id)
+    
+    
+    
   end
 
   # GET /clubs/new
@@ -161,7 +174,7 @@ class ClubsController < ApplicationController
   end
   def approveEvent
     respond_to do |format|
-      @shareEvent = SharedEvent.find(params[:id])
+      @shareEvent = SharedEvent.find(params[:Eid])
       if @shareEvent.approved
         format.html { redirect_to @club, notice: 'Event sharing already Approved!' }
         format.json { render :show, status: :created, location: @club }

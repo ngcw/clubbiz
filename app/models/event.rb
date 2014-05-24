@@ -16,7 +16,6 @@ class Event < ActiveRecord::Base
   
   validates_attachment_content_type :image3, :content_type => /\Aimage\/.*\Z/
   validates :name , presence:true
-  validates :memberOnly , presence:true
   validates :date , presence:true
   validates :place , presence:true
   def attendees
