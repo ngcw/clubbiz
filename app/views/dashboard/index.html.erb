@@ -1,6 +1,7 @@
 <div class="container">
   <% if current_user.csadmin %>
     <h1> Welcome Administrator <%= current_user.first_name %> </h1>
+    
   <% end %>
   <% if !current_user.csadmin %>
     <h1>Welcome to your Dashboard!</h1>

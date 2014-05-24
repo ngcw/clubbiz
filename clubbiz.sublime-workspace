@@ -375,13 +375,18 @@
 	},
 	"file_history":
 	[
+		"/home/renlord/Desktop/clubbiz/app/models/user.rb",
+		"/home/renlord/Desktop/clubbiz/db/migrate/20140523173116_create_reserve_tickets.rb",
 		"/home/renlord/Desktop/clubbiz/app/controllers/dashboard_controller.rb",
-		"/home/renlord/Desktop/clubbiz/app/views/events/show.html.erb",
-		"/home/renlord/Desktop/clubbiz/db/migrate/20140512013447_devise_create_users.rb",
-		"/home/renlord/Desktop/clubbiz/app/views/dashboard/index.html.erb",
 		"/home/renlord/Desktop/clubbiz/config/routes.rb",
 		"/home/renlord/Desktop/clubbiz/app/views/layouts/application.html.erb",
-		"/home/renlord/Desktop/clubbiz/app/models/user.rb",
+		"/home/renlord/Desktop/clubbiz/app/views/dashboard/index.html.erb",
+		"/home/renlord/Desktop/clubbiz/app/models/event.rb",
+		"/home/renlord/Desktop/clubbiz/db/migrate/20140512013447_devise_create_users.rb",
+		"/home/renlord/Desktop/clubbiz/app/views/devise/registrations/edit.html.erb",
+		"/home/renlord/Desktop/clubbiz/app/views/devise/registrations/new.html.erb",
+		"/home/renlord/Desktop/clubbiz/app/views/dashboard/cs.html.erb",
+		"/home/renlord/Desktop/clubbiz/app/views/events/show.html.erb",
 		"/home/renlord/Desktop/clubbiz/db/schema.rb",
 		"/home/renlord/Desktop/clubbiz/app/controllers/home_controller.rb",
 		"/home/renlord/Desktop/clubbiz/app/controllers/application_controller.rb",
@@ -390,7 +395,6 @@
 		"/home/renlord/Desktop/clubbiz/app/assets/javascripts/bootstrap.js",
 		"/home/renlord/Downloads/bootstrap-calendar-0.2.3/js/app.js",
 		"/home/renlord/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
-		"/home/renlord/Desktop/clubbiz/app/models/event.rb",
 		"/home/renlord/Desktop/clubbiz/app/assets/stylesheets/home.css.scss",
 		"/home/renlord/Desktop/clubbiz/app/views/shared/_defaultnav.html.erb",
 		"/home/renlord/Desktop/clubbiz/app/views/shared/_dashnav.html.erb",
@@ -498,11 +502,7 @@
 		"/home/renlord/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings",
 		"/home/renlord/Desktop/tourneymaster/public/app/views/profile.html",
 		"/home/renlord/Desktop/tourneymaster/public/app/styles/main.css",
-		"/home/renlord/Desktop/tourneymaster/public/app/styles/app-style.css",
-		"/home/renlord/Desktop/tourneymaster/public/app/scripts/controllers/dashboardController.js",
-		"/home/renlord/Desktop/tourneymaster/public/app/scripts/controllers/tournamentController.js",
-		"/home/renlord/Desktop/tourneymaster/public/app/views/main.html",
-		"/home/renlord/Desktop/tourneymaster/public/app/scripts/app-service.js"
+		"/home/renlord/Desktop/tourneymaster/public/app/styles/app-style.css"
 	],
 	"find":
 	{
@@ -690,7 +690,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 176.0,
+	"side_bar_width": 463.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
