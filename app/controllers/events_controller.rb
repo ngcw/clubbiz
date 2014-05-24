@@ -11,10 +11,14 @@ class EventsController < ApplicationController
   # GET /events/1.json
   def show
     @clubs = Club.where.not(id: @event.club_id)
+    @curr_club = Club.where(id: @event.club_id).take
     @unshared_club ||= []
+    @shared_club ||= []
     @clubs.each do |club|
       if !SharedEvent.exists?(:eventId => @event.id, :clubId => club.id)
         @unshared_club << club
+      elsif SharedEvent.exists?(:eventId => @event.id , :clubId => club.id, :approved => true)
+        @shared_club << club
       end
     end
     
