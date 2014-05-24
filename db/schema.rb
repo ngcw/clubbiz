@@ -34,6 +34,16 @@ ActiveRecord::Schema.define(version: 20140524130617) do
     t.datetime "updated_at"
   end
 
+  create_table "announcements", force: true do |t|
+    t.integer  "club_id"
+    t.integer  "user_id"
+    t.string   "message"
+    t.boolean  "admintoggle"
+    t.boolean  "membertoggle"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "club_announcements", force: true do |t|
     t.text     "content"
     t.integer  "club_id"
