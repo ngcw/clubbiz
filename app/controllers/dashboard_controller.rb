@@ -9,8 +9,8 @@ class DashboardController < ApplicationController
   end
 
   def csadmin
-    # this action is only accessible to users with Super Admin privileges.
-    # @pending_clubs = adminstration.pending_clubs
+    @approved_clubs = Club.where(approved: false)
+
   end
 
 end

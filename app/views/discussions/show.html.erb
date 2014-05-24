@@ -1,0 +1,57 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Topic:</strong>
+  <%= @discussion.topic %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @discussion.description %>
+</p>
+
+<p>
+  <strong>Started:</strong>
+  <%= @discussion.created_at %>
+</p>
+<p>
+  <strong>Event:</strong>
+  <%= link_to Event.find(@discussion.event_id).name, Event.find(@discussion.event_id) %>
+</p>
+
+<%if @discussion.user_id == current_user.id%>
+  <%= link_to 'Edit', edit_discussion_path(@discussion) %> |
+<%end%>
+<%= link_to 'Back', discussions_path %>
+
+
+<h1>Listing posts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Posted By</th>
+      <th>Contents</th>
+      <th>Last Updated</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @discussion.posts.each do |post| %>
+      <tr>
+        <td><%= User.find(post.user_id).full_name%></td>
+        <td><%= post.contents %></td>
+        <td><%= post.updated_at %></td>
+        <%if post.user_id == current_user.id%>
+          <td><%= link_to 'Edit', edit_post_path(post) %></td>
+          <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <%end%>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Post', new_post_path %>
