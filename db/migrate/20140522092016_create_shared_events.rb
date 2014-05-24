@@ -1,10 +1,15 @@
 class CreateSharedEvents < ActiveRecord::Migration
   def change
     create_table :shared_events do |t|
-      t.integer :eventId
+      # Associations
+      t.belongs_to :events
+      t.belongs_to :clubs
 
+      # Table Fields
+      t.integer :eventId
+      t.integer :clubId
+      t.boolean :approved
       t.timestamps
     end
-    add_index :shared_events, :eventId,   unique: true
   end
 end

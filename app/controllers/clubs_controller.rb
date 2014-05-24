@@ -1,5 +1,5 @@
 class ClubsController < ApplicationController
-  before_action :set_club, only: [:show, :edit, :update, :destroy, :join, :leave, :approve, :follow]
+  before_action :set_club, only: [:approveEvent, :show, :edit, :update, :destroy, :join, :leave, :approve, :follow]
   before_action :authenticate_user! #, only: [:edit,:new,:update,:destroy]
 
   # GET /clubs
@@ -11,6 +11,12 @@ class ClubsController < ApplicationController
   # GET /clubs/1
   # GET /clubs/1.json
   def show
+    @shared_events = SharedEvent.where(clubId: @club.id, approved: false)
+    @pendingrequest ||= []
+    @shared_events.each do |event|
+      event_item = Event.where(id: event.eventId).take
+      @pendingrequest << event_item
+    end
   end
 
   # GET /clubs/new
@@ -149,7 +155,19 @@ class ClubsController < ApplicationController
       end     
     end
   end
-
+  def approveEvent
+    respond_to do |format|
+      @shareEvent = SharedEvent.find(params[:id])
+      if @shareEvent.approved
+        format.html { redirect_to @club, notice: 'Event sharing already Approved!' }
+        format.json { render :show, status: :created, location: @club }
+      else
+        @shareEvent.update(approved: true)
+        format.html { redirect_to @club, notice: 'Event sharing was successfully approved' }
+        format.json { render :show, status: :created, location: @club }
+      end
+    end
+  end
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_club

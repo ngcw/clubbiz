@@ -16,6 +16,14 @@
   <strong>Founded:</strong>
   <%= @club.created_at %>
 </p>
+
+<h2>Share Event Request</h2>
+  <% @pendingrequest.each do |shareEvent| %>
+	<p>
+		<%= link_to shareEvent.name, event_path(shareEvent) %> 
+	   	<%= link_to 'approve', approve_event_path(shareEvent.id) %>
+	</p> 
+  <% end %>
 <h1>Members Area</h1>
 
 <h2>Commitee Details</h2>
