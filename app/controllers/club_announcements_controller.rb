@@ -20,6 +20,7 @@ class ClubAnnouncementsController < ApplicationController
 
   # GET /club_announcements/1/edit
   def edit
+    @club = Club.find(@club_announcement.club_id)
   end
 
   # POST /club_announcements
@@ -58,7 +59,7 @@ class ClubAnnouncementsController < ApplicationController
   def destroy
     @club_announcement.destroy
     respond_to do |format|
-      format.html { redirect_to club_announcements_url, notice: 'Club announcement was successfully destroyed.' }
+      format.html { redirect_to club_path(@club_announcement.club_id), notice: 'Club announcement was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
