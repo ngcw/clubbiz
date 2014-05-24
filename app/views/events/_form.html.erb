@@ -67,6 +67,9 @@
     <%= f.label :termsConditions%><br>
     <%= f.text_field :termsConditions %>
   </div>
+  <div class="field">
+    <%= f.hidden_field :club_id, :value => @club.id %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

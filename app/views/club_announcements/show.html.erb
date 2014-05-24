@@ -6,14 +6,11 @@
   <strong>Title:</strong>
   <%= @club_announcement.title %>
 </p>
-<p>
-  <strong>Content:</strong>
-  <%= @club_announcement.content %>
-</p>
+
 
 <p>
   <strong>Club:</strong>
-  <!--%= club.name %/-->
+  <%= club.name %>
 </p>
 
 <p>
@@ -22,11 +19,16 @@
 </p>
 
 <p>
-  <strong>Added At:</strong>
-  <%= u@club_announcement.created_at%>
+  <strong>Last upadated:</strong>
+  <%= @club_announcement.updated_at%>
+</p>
+
+<p>
+  <strong>Announcement:</strong>
+  <%= @club_announcement.content %>
 </p>
 
 <%if ((club.administrators.include? Administrator.find_by(adminId: current_user.id)) || (club.owner_id == current_user.id))%>
 	<%= link_to 'Edit', edit_club_announcement_path(@club_announcement) %> |
 <%end%>
-<%= link_to 'Back', club_announcements_path %>
+<%= link_to 'Back', club_path(club.id) %>
