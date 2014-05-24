@@ -28,6 +28,7 @@ class ClubsController < ApplicationController
     @club = Club.new(club_params)
     @club.approved = false
     @club.owner_id = current_user.id
+    @club.users << current_user  #owner should be member in the club
     
     ((params[:club][:administrators]).scan(/.+/)).each.with_index do |match, index|
        
@@ -42,6 +43,9 @@ class ClubsController < ApplicationController
            admin.save
          end
          @club.administrators << admin
+         if !(@club.users.include? adminUser)
+          @club.users << adminUser  #admins should be members in the club
+         end
        else
          respond_to do |format|
           format.html { render :new }

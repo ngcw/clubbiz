@@ -118,10 +118,12 @@
 	<h2>Shared Events Pending Acceptance</h2>
 <%end%>
 <!--  links to actions /-->
-	<%if @club.users.include? current_user%>
-		<%= link_to "Leave Club", leave_club_path(@club.id) %> |
-	<%else%>
-		<%= link_to "Join Club", join_club_path(@club.id) %> |
+	<% if !isAdmin%>
+		<%if @club.users.include? current_user%>
+			<%= link_to "Leave Club", leave_club_path(@club.id) %> |
+		<%else%>
+			<%= link_to "Join Club", join_club_path(@club.id) %> |
+		<%end%>
 	<%end%>
 	
 	<%= link_to "Follow", follow_club_path(@club.id) %> |
