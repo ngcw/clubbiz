@@ -49,7 +49,7 @@
 				  </thead>
 				
 				  <tbody>
-				    <% @discussions.each do |discussion| %>
+				    <% @event.discussions.each do |discussion| %>
 				      <tr>
 				        <td><%= link_to discussion.topic, discussion %></td>
 				        <td><%= discussion.description %></td>
@@ -66,7 +66,7 @@
 				
 				<br>
 				
-				<%= link_to 'New Discussion', new_discussion_path %>
+				<%= link_to 'New Discussion', new_discussion_path(@event.id) %>
 		</div>
 	</div>
 	

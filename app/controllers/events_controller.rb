@@ -28,6 +28,7 @@ class EventsController < ApplicationController
 
   # GET /events/1/edit
   def edit
+    @club = Club.find(@event.club_id)
   end
 
   # POST /events
@@ -65,7 +66,7 @@ class EventsController < ApplicationController
   def destroy
     @event.destroy
     respond_to do |format|
-      format.html { redirect_to @event, notice: 'Event was successfully destroyed.' }
+      format.html { redirect_to club_path(@event.club_id), notice: 'Event was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
