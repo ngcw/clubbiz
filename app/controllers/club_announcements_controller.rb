@@ -15,6 +15,7 @@ class ClubAnnouncementsController < ApplicationController
   # GET /club_announcements/new
   def new
     @club_announcement = ClubAnnouncement.new
+    @club = Club.find(params[:format])
   end
 
   # GET /club_announcements/1/edit
@@ -25,6 +26,7 @@ class ClubAnnouncementsController < ApplicationController
   # POST /club_announcements.json
   def create
     @club_announcement = ClubAnnouncement.new(club_announcement_params)
+    @club_announcement.user_id = current_user.id
 
     respond_to do |format|
       if @club_announcement.save
@@ -69,6 +71,6 @@ class ClubAnnouncementsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def club_announcement_params
-      params.require(:club_announcement).permit(:content, :club_id, :user_id)
+      params.require(:club_announcement).permit(:content, :title, :club_id)
     end
 end

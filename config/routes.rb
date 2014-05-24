@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get 'home' => 'home#index'
 
   devise_for :users, :controllers => {:registrations => "registrations"}
-  resources :events, :clubs, :dashboard
+  resources :events, :clubs, :dashboard, :posts, :discussions
   resources :csadmin, path: '/dashboard/csadmin'
   resources :club_announcements
 

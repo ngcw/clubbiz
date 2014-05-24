@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 20140524103936) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "title"
   end
 
   create_table "club_registration_requests", force: true do |t|
@@ -82,6 +83,15 @@ ActiveRecord::Schema.define(version: 20140524103936) do
     t.integer  "user"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "discussions", force: true do |t|
+    t.string   "topic"
+    t.string   "description"
+    t.integer  "event_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   create_table "events", force: true do |t|
@@ -125,6 +135,14 @@ ActiveRecord::Schema.define(version: 20140524103936) do
   end
 
   add_index "followers", ["followId"], name: "index_followers_on_followId", unique: true
+
+  create_table "posts", force: true do |t|
+    t.text     "contents"
+    t.integer  "user_id"
+    t.integer  "discussion_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "reserve_tickets", force: true do |t|
     t.integer  "users_id"

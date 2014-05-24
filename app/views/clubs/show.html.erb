@@ -5,17 +5,16 @@
   <strong>Name:</strong>
   <%= @club.name %>
 </p>
-
 <p>
   <strong>Description:</strong>
   <%= @club.description %>
 </p>
-
-
 <p>
   <strong>Founded:</strong>
   <%= @club.created_at %>
 </p>
+
+
 <h1>Members Area</h1>
 
 <h2>Commitee Details</h2>
@@ -51,15 +50,6 @@
 </table>
 <br>
 
-<!--  links to actions /-->
-<%if @club.users.include? current_user%>
-	<%= link_to "Leave Club", leave_club_path(@club.id) %> |
-<%else%>
-	<%= link_to "Join Club", join_club_path(@club.id) %> |
-<%end%>
-
-<%= link_to "Follow", follow_club_path(@club.id) %> |
-
 
 <!-- check if the current user is Administrator for the club /-->
 <%isAdmin = false%>
@@ -68,14 +58,158 @@
 <%end%>
 
 
+<%if @club.approved%>
+<h2>Events hosted by the club</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Event Name</th>
+      <th>Date</th>
+      <th>Place</th>
+      <th>Description</th>
+      <th>Last Updated</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @club.events.each do |event| %>
+	    <% if (@club.users.include? current_user) || (!event.memberOnly)%>
+	      <tr>
+	        <td><%= link_to event.name, event %></td>
+	        <td><%= event.date %></td>
+	        <td><%= event.place %></td>
+	        <td><%= event.description%></td>
+	        <td><%= event.updated_at %></td>
+	        <%if isAdmin%>
+		        <td><%= link_to 'Edit', edit_event_path(event) %></td>
+		        <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+		    <%end%>
+	      </tr>
+	    <%end%>
+    <% end %>
+  </tbody>
+</table>
+<h2>Events shared by other clubs</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Event Name</th>
+      <th>Date</th>
+      <th>Place</th>
+      <th>Description</th>
+      <th>Last Updated</th>
+      <th>Hosted by</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @club.shared_events.each do |shared_event| %>    
+      <%if shared_event.approved%>
+        <%event = Event.find(shared_event.eventId)%>
+	    <% if (@club.users.include? current_user) || (!event.memberOnly)%>
+	      <tr>
+	        <td><%= link_to event.name, event %></td>
+	        <td><%= event.date %></td>
+	        <td><%= event.place %></td>
+	        <td><%= event.description%></td>
+	        <td><%= event.updated_at %></td>
+	        <td><%= link_to Club.find(evnet.club_id).name, Club.find(evnet.club_id) %></td>
+	      </tr>
+	    <%end%>
+	  <%end%>
+    <% end %>
+  </tbody>
+</table>
+<h2>Announcements</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Announcement</th>
+      <th>Last Updated</th>
+      <th>Added by</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @club.club_announcements.each do |club_announcement| %>
+      <tr>
+        <td><%= link_to club_announcement.title, club_announcement %></td>
+        <td><%= club_announcement.updated_at %></td>
+        <td><%= User.find(club_announcement.user_id).full_name %></td>
+        <%if isAdmin%>
+	        <td><%= link_to 'Edit', edit_club_announcement_path(club_announcement) %></td>
+	        <td><%= link_to 'Destroy', club_announcement, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	    <%end%>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 <%if isAdmin%>
-	<%= link_to 'New Event', new_event_path(@club.id) %> |
+	<h2>Shared Events Pending Acceptance</h2>
+	<table>
+  <thead>
+    <tr>
+      <th>Event Name</th>
+      <th>Date</th>
+      <th>Place</th>
+      <th>Description</th>
+      <th>Last Updated</th>
+      <th>Hosted by</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @club.shared_events.each do |event| %>
+       <%if !shared_event.approved%>
+        <%event = Event.find(shared_event.eventId)%>
+	    <% if (@club.users.include? current_user) || (!event.memberOnly)%>
+	      <tr>
+	        <td><%= link_to event.name, event %></td>
+	        <td><%= event.date %></td>
+	        <td><%= event.place %></td>
+	        <td><%= event.description%></td>
+	        <td><%= event.updated_at %></td>
+	        <td><%= link_to Club.find(evnet.club_id).name, Club.find(evnet.club_id) %></td>
+	        <td><%= link_to 'Accept', approve_event_path(shared_event.id)%></td>
+	      </tr>
+	    <%end%>
+	  <%end%>
+    <% end %>
+  </tbody>
+</table>
+<%end%>
+<!--  links to actions /-->
+	<% if !isAdmin%>
+		<%if @club.users.include? current_user%>
+			<%= link_to "Leave Club", leave_club_path(@club.id) %> |
+		<%else%>
+			<%= link_to "Join Club", join_club_path(@club.id) %> |
+		<%end%>
+	<%end%>
+	
+	<%= link_to "Follow", follow_club_path(@club.id) %> |
+	
+	
+	<%if isAdmin%>
+		<%= link_to 'New Event', new_event_path(@club.id) %> |
+		<%= link_to 'Add Announcement', new_club_announcement_path(@club.id) %> |
+	<%end%>
+<%else%>
+<h1>Club is pending approval</h1>
+	<%if current_user.csadmin%>
+		<%= link_to "Approve Club", approve_club_path(@club.id), data: { confirm: 'Are you sure?' }  %> |
+	<%end%>
+<%end%>
+
+<%if isAdmin%>
 	<%= link_to "Edit Club Profile", edit_club_path(@club) %> |
 <%end%>
 <%if @club.owner_id == current_user.id%>
 	<%= link_to "Deregister Club", @club, method: :delete, data: { confirm: 'Are you sure?' } %> |
 <%end%>
-<%if current_user.csadmin%>
-	<%= link_to "Approve Club", approve_club_path(@club.id), data: { confirm: 'Are you sure?' }  %> |
-<%end%>
+
 <%= link_to 'Back', clubs_path %>

@@ -1,19 +1,34 @@
+<%club = Club.find_by(id: @club_announcement.club_id)%>
+<%user = User.find_by(id: @club_announcement.user_id)%>
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Content:</strong>
-  <%= @club_announcement.content %>
+  <strong>Title:</strong>
+  <%= @club_announcement.title %>
 </p>
+
 
 <p>
   <strong>Club:</strong>
-  <%= @club_announcement.club_id %>
+  <%= club.name %>
 </p>
 
 <p>
-  <strong>User:</strong>
-  <%= @club_announcement.user_id %>
+  <strong>Added By:</strong>
+  <%= user.full_name %>
 </p>
 
-<%= link_to 'Edit', edit_club_announcement_path(@club_announcement) %> |
-<%= link_to 'Back', club_announcements_path %>
+<p>
+  <strong>Last upadated:</strong>
+  <%= @club_announcement.updated_at%>
+</p>
+
+<p>
+  <strong>Announcement:</strong>
+  <%= @club_announcement.content %>
+</p>
+
+<%if ((club.administrators.include? Administrator.find_by(adminId: current_user.id)) || (club.owner_id == current_user.id))%>
+	<%= link_to 'Edit', edit_club_announcement_path(@club_announcement) %> |
+<%end%>
+<%= link_to 'Back', club_path(club.id) %>
