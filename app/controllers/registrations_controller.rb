@@ -15,8 +15,8 @@ class RegistrationsController < Devise::RegistrationsController
 		@user.phone_number = params[:user][:phone_number]
 		if (params[:user][:superadmin_password].match("clubbiz"))
 			@user.csadmin = true
-			@user.save
 		end
+		@user.save
 	end
 
 end
