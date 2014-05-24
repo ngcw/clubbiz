@@ -59,7 +59,36 @@
 
 
 <%if @club.approved%>
-<h2>Events</h2>
+<h2>Events hosted by the club</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Event Name</th>
+      <th>Date</th>
+      <th>Description</th>
+      <th>Last Updated</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @club.events.each do |event| %>
+	    <% if (@club.users.include? current_user) || (!event.memberOnly)%>
+	      <tr>
+	        <td><%= link_to event.name, event %></td>
+	        <td><%= event.date %></td>
+	        <td><%= event.description%></td>
+	        <td><%= event.updated_at %></td>
+	        <%if isAdmin%>
+		        <td><%= link_to 'Edit', edit_club_announcement_path(club_announcement) %></td>
+		        <td><%= link_to 'Destroy', club_announcement, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+		    <%end%>
+	      </tr>
+	    <%end%>
+    <% end %>
+  </tbody>
+</table>
+<h2>Events shared by other clubs</h2>
 <h2>Announcements</h2>
 <table>
   <thead>
