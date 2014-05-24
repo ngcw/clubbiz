@@ -23,7 +23,11 @@ Rails.application.routes.draw do
   get     '/club/leave/:id', to:           'clubs#leave',   as:   'leave_club'
   get     '/club/approve/:id', to:         'clubs#approve', as: 'approve_club'
   get     '/club/follow/:id', to:           'clubs#follow', as:  'follow_club'
+  get     '/club/index/', to:             'clubs#allclubs', as:  'all_club'
+  
+
   get     '/club/approveEvent/:id/:Eid', to:     'clubs#approveEvent', as: 'approve_event'
+  
   #Event actions
   get     '/event/reserve/:id', to:         'events#reserve', as: 'reserve_event'
   get     '/event/share/:id'  , to:         'events#share',   as: 'share_event'  

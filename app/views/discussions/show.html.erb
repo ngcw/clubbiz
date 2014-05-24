@@ -22,7 +22,7 @@
 <%if @discussion.user_id == current_user.id%>
   <%= link_to 'Edit', edit_discussion_path(@discussion) %> |
 <%end%>
-<%= link_to 'Back', discussions_path %>
+<%= link_to 'Back', event_path(@discussion.event_id) %>
 
 
 <h1>Listing posts</h1>
