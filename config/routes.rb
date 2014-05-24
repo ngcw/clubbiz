@@ -1,11 +1,16 @@
 Rails.application.routes.draw do
 
+  get 'csadmin/announce'
+
+  get 'dashboard/csadmin' => 'csadmin#index'
+
   get 'about' => 'about#index'
 
   get 'home' => 'home#index'
 
   devise_for :users, :controllers => {:registrations => "registrations"}
   resources :events, :clubs, :dashboard
+  resources :csadmin, path: '/dashboard/csadmin'
   resources :club_announcements
 
   authenticated :user do
@@ -21,9 +26,6 @@ Rails.application.routes.draw do
   
   #Event actions
   get     '/event/reserve/:id', to:         'events#reserve', as: 'reserve_event'
-
-  # Dashboard Actions
-  get     '/dashboard/csadmin', to:         'dashboard#csadmin', as: 'csadmin_dashboard'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

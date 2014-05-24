@@ -1,0 +1,13 @@
+<h1>Dashboard#csadmin</h1>
+<p>Find me in app/views/dashboard/csadmin.html.erb</p>
+<h3> Clubs Pending Approval </h3>
+<div class="list-group">
+    <% @approved_clubs.each do |approved_club| %>
+        <%= link_to approved_club.name, approved_club, :class => "list-group-item" %>
+    <% end %>
+    <% if @approved_clubs.size == 0 %>
+        <div class="list-group-item">
+            There are no clubs waiting for approval
+        </div>
+    <% end %>
+</div>
