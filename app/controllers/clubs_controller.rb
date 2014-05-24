@@ -7,6 +7,11 @@ class ClubsController < ApplicationController
   def index
     @clubs = Club.all
   end
+  
+  # GET /club/incdex
+  def allclubs
+    @clubs = Club.all
+  end
 
   # GET /clubs/1
   # GET /clubs/1.json
