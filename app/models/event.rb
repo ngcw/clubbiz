@@ -19,6 +19,7 @@ class Event < ActiveRecord::Base
   validates :name , presence:true
   validates :date , presence:true
   validates :place , presence:true
+  validates :total_tickets, presence:true
   def attendees
     self.total_tickets - self.remaining_tickets 
   end

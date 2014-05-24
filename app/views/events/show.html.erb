@@ -96,12 +96,12 @@
 		<% end %>
 	</div>
 	<div id="ticketing">
-		</br>Ticket Price: <%= @event.price %></br></br>
+		</br>Ticket Price: <%= @event.price || 'Free' %></br></br>
 		Sale Location: <%= @event.salesLocation %></br>
 		<div id="terms">
-			
+			<%= @event.termsConditions%>
 		</div>
-		Follow</br></br>
+		</br></br>
 		<% if (@curr_club.users.include? current_user) || (!@event.memberOnly)%>
 
 			<%= form_tag(reserve_event_path, method:"get", multipart: true) do %>
