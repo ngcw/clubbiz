@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140524071514) do
+ActiveRecord::Schema.define(version: 20140524125147) do
 
   create_table "administrators", force: true do |t|
     t.integer  "adminId"
@@ -83,6 +83,14 @@ ActiveRecord::Schema.define(version: 20140524071514) do
     t.datetime "updated_at"
   end
 
+  create_table "discussions", force: true do |t|
+    t.string   "topic"
+    t.string   "description"
+    t.integer  "event_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "events", force: true do |t|
     t.string   "name"
     t.boolean  "memberOnly"
@@ -124,6 +132,14 @@ ActiveRecord::Schema.define(version: 20140524071514) do
   end
 
   add_index "followers", ["followId"], name: "index_followers_on_followId", unique: true
+
+  create_table "posts", force: true do |t|
+    t.text     "contents"
+    t.integer  "user_id"
+    t.integer  "discussion_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "reserve_tickets", force: true do |t|
     t.integer  "users_id"

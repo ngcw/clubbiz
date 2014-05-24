@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  resources :posts
+
+  resources :discussions
+
   get 'csadmin/announce'
 
   get 'dashboard/csadmin' => 'csadmin#index'
