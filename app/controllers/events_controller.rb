@@ -10,11 +10,13 @@ class EventsController < ApplicationController
   # GET /events/1
   # GET /events/1.json
   def show
+    @clubs = Club.where.not(id: @event.club_id)
   end
 
   # GET /events/new
   def new
     @event = Event.new
+    @club = Club.find(params[:format])
   end
 
   # GET /events/1/edit
@@ -25,7 +27,6 @@ class EventsController < ApplicationController
   # POST /events.json
   def create
     @event = Event.new(event_params)
-    @event.club_id = params[:club_id]
     @event.remaining_tickets = params[:event][:total_tickets]
     respond_to do |format|
       if @event.save
@@ -81,6 +82,28 @@ class EventsController < ApplicationController
         format.html { redirect_to @event, notice: 'Congratulation! You Joined the Event.' }
         format.json { render :show, status: :created, location: @event }
       end
+    end
+  end
+  
+  def share
+   #check if event alreay shared as admin
+   shared = SharedEvent.find_by(eventId: @event.id)
+   if (!shared)
+     shared = SharedEvent.new
+     shared.eventId = @event.id
+     shared.save
+   end
+
+    respond_to do |format|
+      if @club.shared.include? shared
+        format.html { redirect_to @event, notice: 'Event already shared to #{@club.name}' }
+        format.json { render :show, status: :created, location: @event }
+      else
+        @club.shared << shared
+        @club.save
+        format.html { redirect_to @event, notice: 'Event successfully shared.' }
+        format.json { render :show, status: :created, location: @event }
+      end     
     end
   end
   private

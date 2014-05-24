@@ -44,7 +44,11 @@
 <div id="eventRight">
 	<div id="adminTools">
 		<h4>Admin Tools</h4>
-		Attendee List</br></br>
+		Share Event</br></br>
+		<% @clubs.each do |club| %>
+			<%= check_box_tag(club.id, value=club.id) %>
+			<%= label_tag(club.id, club.name)%>
+        <% end %>
 		<%= link_to 'Edit', edit_event_path(@event) %> </br></br>
 		<%= link_to 'Destroy', @event, method: :delete, data: { confirm: 'Are you sure?' } %>
 

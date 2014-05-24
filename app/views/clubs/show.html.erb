@@ -69,7 +69,7 @@
 
 
 <%if isAdmin%>
-	<%= link_to 'New Event', new_event_path(:club_id => @club.clubId) %> |
+	<%= link_to 'New Event', new_event_path(@club.id) %> |
 	<%= link_to "Edit Club Profile", edit_club_path(@club) %> |
 <%end%>
 <%if @club.owner_id == current_user.id%>
