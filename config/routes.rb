@@ -1,10 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :posts
-
-  resources :discussions
-
-  get 'csadmin/announce'
+  post 'csadmin/announce' => 'csadmin#announce'
 
   get 'dashboard/csadmin' => 'csadmin#index'
 
@@ -13,7 +9,7 @@ Rails.application.routes.draw do
   get 'home' => 'home#index'
 
   devise_for :users, :controllers => {:registrations => "registrations"}
-  resources :events, :clubs, :dashboard
+  resources :events, :clubs, :dashboard, :posts, :discussions
   resources :csadmin, path: '/dashboard/csadmin'
   resources :club_announcements
 
