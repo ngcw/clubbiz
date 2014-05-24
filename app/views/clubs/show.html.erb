@@ -51,15 +51,6 @@
 </table>
 <br>
 
-<!--  links to actions /-->
-<%if @club.users.include? current_user%>
-	<%= link_to "Leave Club", leave_club_path(@club.id) %> |
-<%else%>
-	<%= link_to "Join Club", join_club_path(@club.id) %> |
-<%end%>
-
-<%= link_to "Follow", follow_club_path(@club.id) %> |
-
 
 <!-- check if the current user is Administrator for the club /-->
 <%isAdmin = false%>
@@ -67,15 +58,32 @@
 	<%isAdmin = true%>
 <%end%>
 
+<!--  links to actions /-->
+<%if @club.approved%>
+	<%if @club.users.include? current_user%>
+		<%= link_to "Leave Club", leave_club_path(@club.id) %> |
+	<%else%>
+		<%= link_to "Join Club", join_club_path(@club.id) %> |
+	<%end%>
+	
+	<%= link_to "Follow", follow_club_path(@club.id) %> |
+	
+	
+	<%if isAdmin%>
+		<%= link_to 'New Event', new_event_path(:club_id => @club.clubId) %> |
+	<%end%>
+<%else%>
+<h1>Club is pending approval</h1>
+	<%if current_user.csadmin%>
+		<%= link_to "Approve Club", approve_club_path(@club.id), data: { confirm: 'Are you sure?' }  %> |
+	<%end%>
+<%end%>
 
 <%if isAdmin%>
-	<%= link_to 'New Event', new_event_path(:club_id => @club.clubId) %> |
 	<%= link_to "Edit Club Profile", edit_club_path(@club) %> |
 <%end%>
 <%if @club.owner_id == current_user.id%>
 	<%= link_to "Deregister Club", @club, method: :delete, data: { confirm: 'Are you sure?' } %> |
 <%end%>
-<%if current_user.csadmin%>
-	<%= link_to "Approve Club", approve_club_path(@club.id), data: { confirm: 'Are you sure?' }  %> |
-<%end%>
+
 <%= link_to 'Back', clubs_path %>
