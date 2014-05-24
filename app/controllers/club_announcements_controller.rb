@@ -25,6 +25,8 @@ class ClubAnnouncementsController < ApplicationController
   # POST /club_announcements.json
   def create
     @club_announcement = ClubAnnouncement.new(club_announcement_params)
+    @club_announcement.user_id = current_user.id
+    @club_announcement.club_id = params[:club_id]
 
     respond_to do |format|
       if @club_announcement.save
@@ -69,6 +71,6 @@ class ClubAnnouncementsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def club_announcement_params
-      params.require(:club_announcement).permit(:content, :club_id, :user_id)
+      params.require(:club_announcement).permit(:content, :title)
     end
 end
