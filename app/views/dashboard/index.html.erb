@@ -1,6 +1,6 @@
 <div class="container">
   <% if current_user.csadmin %>
-    <h1> Welcome Administrator <%= current_user.first_name %> </h1>
+    <h1> Welcome Administrator, <%= current_user.first_name %> </h1>
     
   <% end %>
   <% if !current_user.csadmin %>
@@ -21,6 +21,14 @@
         <% @events.each do |event| %>
           <%= link_to event.name, event, :class => "list-group-item" %>
         <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <h3> C&amp;S Announcements </h3>
+      <div class="list-group">
+
       </div>
     </div>
   </div>
