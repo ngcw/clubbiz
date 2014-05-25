@@ -5,12 +5,22 @@ class ClubsController < ApplicationController
   # GET /clubs
   # GET /clubs.json
   def index
-    @clubs = Club.all
+    @clubs = current_user.clubs
+    admin = Administrator.find_by(adminId: current_user.id)
+    if (admin)
+      @administer = admin.clubs
+    end
+    follower = Follower.find_by(followId: current_user.id)
+    if (follower)
+      @follows = follower.clubs
+    else
+      @follows = nil
+    end
   end
   
-  # GET /club/incdex
+  # GET /club/index
   def allclubs
-    @clubs = Club.all
+    @clubs = Club.where(approved: true)
   end
 
   # GET /clubs/1

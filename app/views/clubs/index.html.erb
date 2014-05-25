@@ -5,90 +5,81 @@
   </div>
 </div>
 
-<h2> Clubs Affiliated to You </h2>
+<div class="col-md-8">
+  <div class="row">
+    <div class="col-md-6">
+      <h3> Clubs You Administrate </h3>
+      <div class="list-group">
+        <% @administer.each do |admin| %>
+        <div class="list-group-item">
+          <%= link_to(admin, style:"text-decoration:none") do %>
+            <div class="list-group-item-heading">
+              <%= admin.name %>
+            </div>  
+            <div class="list-group-item-body">
+              <%= admin.description %>
+            </div>
+          <% end %>
+        </div>
+        <% end %>
+      </div>
+    </div>
 
-<h2>Owned Clubs</h2>
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+    <div class="col-md-6">
+      <h3> Clubs You've Joined </h3>
+      <div class="list-group">
+        <% if @clubs != nil %>
+          <% @clubs.each do |club| %>
+            <% if club.approved == true %>
+              <div class="list-group-item">
+                <%= link_to(club, style:"text-decoration:none") do %>
+                  <div class="list-group-item-heading">
+                    <%= club.name %>
+                  </div>  
+                  <div class="list-group-item-body">
+                    <%= club.description %>
+                  </div>
+                <% end %>
+              </div>
+            <% end %>
+          <% end %>
+        <% end %>
+        <% if @clubs == nil %>
+          <div class="list-group-item">
+            You've joined no clubs! Or they aren't approved!
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
 
-  <tbody>
-    <% (Club.where(owner_id: current_user.id)).each do |club| %>
-      <tr>
-        <td><%= link_to club.name, club %></td>
-        <td><%= club.description %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-<br>
-
-<h2>Administrated Clubs</h2>
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-  	<%admin = Administrator.find_by(adminId: current_user.id)%>
-  	<%if admin%>
-	    <% admin.clubs.each do |club| %>
-	      <%if club.approved%>
-		      <tr>
-		        <td><%= link_to club.name, club %></td>
-		        <td><%= club.description %></td>
-		      </tr>
-	      <% end %>
-	    <% end %>
-    <%end%>
-  </tbody>
-</table>
-<br>
-
-<h2>Joined Clubs</h2>
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% current_user.clubs.each do |club| %>
-      <tr>
-        <td><%= link_to club.name, club %></td>
-        <td><%= club.description %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-<br>
-<h2>Followed Clubs</h2>
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-  	<%follower = Follower.find_by(followId: current_user.id)%>
-  	<%if follower%>
-	    <% follower.clubs.each do |club| %>
-	      <%if club.approved%>
-		      <tr>
-		        <td><%= link_to club.name, club %></td>
-		        <td><%= club.description %></td>
-		      </tr>
-	      <% end %>
-	    <% end %>
-    <%end%>
-  </tbody>
-</table>
-<br>
+  <div class="row">
+    <div class="col-md-12">
+      <h3> Clubs You're Following </h3>
+      <div class="list-group">
+        <% if @follows != nil %>
+          <% @follows.each do |follow| %>
+            <% if follow.approved == true %>
+              <div class="list-group-item">
+                <%= link_to(follow, style:"text-decoration:none") do %>
+                  <div class="list-group-item-heading">
+                    <%= follow.name %>
+                  </div>  
+                  <div class="list-group-item-body">
+                    <%= follow.description %>
+                  </div>
+                <% end %>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      <% end %>
+      <% if @follows == nil %>
+        <div class="list-group-item">
+          You're following no clubs!
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
 
