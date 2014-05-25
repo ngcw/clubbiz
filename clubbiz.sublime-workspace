@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"list-gr",
+				"list-group-item"
+			],
+			[
 				"club",
 				"clubs"
 			],
@@ -375,21 +379,34 @@
 	},
 	"file_history":
 	[
+		"/home/renlord/Desktop/clubbiz/config/routes.rb",
+		"/home/renlord/Desktop/clubbiz/db/schema.rb",
+		"/home/renlord/Desktop/clubbiz/app/controllers/application_controller.rb",
+		"/home/renlord/Desktop/clubbiz/db/migrate/20140524103936_create_announcements.rb",
+		"/home/renlord/Desktop/clubbiz/app/models/announcement.rb",
+		"/home/renlord/Desktop/clubbiz/app/controllers/csadmin_controller.rb",
+		"/home/renlord/Desktop/clubbiz/db/migrate/20140524105316_create_groups.rb",
+		"/home/renlord/Desktop/clubbiz/db/migrate/20140524105324_create_join_table_user_group.rb",
+		"/home/renlord/Desktop/clubbiz/db/migrate/20140524105208_create_join_table_user_group.rb",
+		"/home/renlord/Desktop/clubbiz/app/models/annoucement.rb",
+		"/home/renlord/Desktop/clubbiz/db/migrate/20140511165241_create_annoucements.rb",
+		"/home/renlord/Desktop/clubbiz/db/migrate/20140524094954_remove_user_from_announcement.rb",
+		"/home/renlord/Desktop/clubbiz/app/views/dashboard/index.html.erb",
+		"/home/renlord/Desktop/clubbiz/db/migrate/20140524094930_remove_user_from_announcement.rb",
+		"/home/renlord/Desktop/clubbiz/app/views/csadmin/index.html.erb",
+		"/home/renlord/Desktop/clubbiz/app/controllers/dashboard_controller.rb",
+		"/home/renlord/Desktop/clubbiz/app/views/dashboard/csadmin.html.erb",
+		"/home/renlord/Desktop/clubbiz/app/views/csadmin/index.html.erb ",
 		"/home/renlord/Desktop/clubbiz/app/models/user.rb",
 		"/home/renlord/Desktop/clubbiz/db/migrate/20140523173116_create_reserve_tickets.rb",
-		"/home/renlord/Desktop/clubbiz/app/controllers/dashboard_controller.rb",
-		"/home/renlord/Desktop/clubbiz/config/routes.rb",
 		"/home/renlord/Desktop/clubbiz/app/views/layouts/application.html.erb",
-		"/home/renlord/Desktop/clubbiz/app/views/dashboard/index.html.erb",
 		"/home/renlord/Desktop/clubbiz/app/models/event.rb",
 		"/home/renlord/Desktop/clubbiz/db/migrate/20140512013447_devise_create_users.rb",
 		"/home/renlord/Desktop/clubbiz/app/views/devise/registrations/edit.html.erb",
 		"/home/renlord/Desktop/clubbiz/app/views/devise/registrations/new.html.erb",
 		"/home/renlord/Desktop/clubbiz/app/views/dashboard/cs.html.erb",
 		"/home/renlord/Desktop/clubbiz/app/views/events/show.html.erb",
-		"/home/renlord/Desktop/clubbiz/db/schema.rb",
 		"/home/renlord/Desktop/clubbiz/app/controllers/home_controller.rb",
-		"/home/renlord/Desktop/clubbiz/app/controllers/application_controller.rb",
 		"/home/renlord/Desktop/clubbiz/app/models/superadmin.rb",
 		"/home/renlord/Desktop/clubbiz/app/assets/stylesheets/application.css.scss",
 		"/home/renlord/Desktop/clubbiz/app/assets/javascripts/bootstrap.js",
@@ -414,7 +431,6 @@
 		"/home/renlord/Desktop/clubbiz/db/migrate/20140519121837_create_join_table_club_user.rb",
 		"/home/renlord/Desktop/clubbiz/db/migrate/20140511165513_create_club_registration_requests.rb",
 		"/home/renlord/Desktop/clubbiz/app/models/club.rb",
-		"/home/renlord/Desktop/clubbiz/app/models/annoucement.rb",
 		"/home/renlord/Desktop/clubbiz/app/models/admin.rb",
 		"/home/renlord/Desktop/Studly/server/app/app.js",
 		"/home/renlord/Desktop/clubbiz/test/controllers/clubs_controller_test.rb",
@@ -490,19 +506,7 @@
 		"/home/renlord/Desktop/trivialtourney/public/app/scripts/trivialDirectives.js",
 		"/home/renlord/Desktop/temp.txt",
 		"/home/renlord/Desktop/trivialtourney/public/app/scripts/controllers/bracket.js",
-		"/home/renlord/Desktop/trivialtourney/public/bower.json",
-		"/home/renlord/Desktop/trivialstudios/public/index.html",
-		"/home/renlord/Desktop/trivialtourney/public/app/styles/bracketcreate.css",
-		"/home/renlord/Desktop/trivialtourney/public/app/views/tournament-create-event.html",
-		"/home/renlord/Desktop/trivialtourney/public/app/views/setting.html",
-		"/home/renlord/Desktop/trivialtourney/public/app/scripts/controllers/findTournament.js",
-		"/home/renlord/Desktop/trivialtourney/public/app/scripts/controllers/tournamentDirective.js",
-		"/home/renlord/Desktop/trivialtourney/TrivialTourney.js",
-		"/home/renlord/Desktop/trivialtourney/public/app/scripts/controllers/settingController.js",
-		"/home/renlord/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings",
-		"/home/renlord/Desktop/tourneymaster/public/app/views/profile.html",
-		"/home/renlord/Desktop/tourneymaster/public/app/styles/main.css",
-		"/home/renlord/Desktop/tourneymaster/public/app/styles/app-style.css"
+		"/home/renlord/Desktop/trivialtourney/public/bower.json"
 	],
 	"find":
 	{
@@ -690,7 +694,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 463.0,
+	"side_bar_width": 405.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
