@@ -21,13 +21,14 @@ class DiscussionsController < ApplicationController
 
   # GET /discussions/1/edit
   def edit
+    @event = Event.find(@discussion.event_id)
   end
 
   # POST /discussions
   # POST /discussions.json
   def create
     @discussion = Discussion.new(discussion_params)
-    @dicussion.user_id = current_user.id
+    @discussion.user_id = current_user.id
 
     respond_to do |format|
       if @discussion.save
@@ -59,7 +60,7 @@ class DiscussionsController < ApplicationController
   def destroy
     @discussion.destroy
     respond_to do |format|
-      format.html { redirect_to discussions_url, notice: 'Discussion was successfully destroyed.' }
+      format.html { redirect_to event_path(@discussion.event_id), notice: 'Discussion was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

@@ -10,4 +10,5 @@ class Club < ActiveRecord::Base
   has_many :shared_events
   
   has_many :club_announcements
+  validates :name, presence: true
 end

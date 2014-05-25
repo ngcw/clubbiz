@@ -21,6 +21,7 @@ class PostsController < ApplicationController
 
   # GET /posts/1/edit
   def edit
+    @discussion = Discussion.find(@post.discussion_id)
   end
 
   # POST /posts
@@ -59,7 +60,7 @@ class PostsController < ApplicationController
   def destroy
     @post.destroy
     respond_to do |format|
-      format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }
+      format.html { redirect_to discussion_path(@post.discussion_id), notice: 'Post was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

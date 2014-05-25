@@ -42,9 +42,6 @@ class ClubsController < ApplicationController
     end
     # hosted events
     @hosted_events = Event.where(club_id: @club.id)
-    
-    
-    
   end
 
   # GET /clubs/new

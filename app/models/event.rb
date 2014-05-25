@@ -6,6 +6,7 @@ class Event < ActiveRecord::Base
   has_many :reserve_tickets
   has_many :clubs , through: :shared_events
   has_many :shared_events
+  has_many :discussions
   has_attached_file :banner, :styles => { :large => "600x300>" , :thumb => "100x100>"}, :default_url => "/images/:style/missing.png"
   validates_attachment_content_type :banner, :content_type => /\Aimage\/.*\Z/
   has_attached_file :image1, :styles => { :medium => "300x300>" , :thumb => "100x100>"}, :default_url => "/images/:style/missing.png"
@@ -18,6 +19,7 @@ class Event < ActiveRecord::Base
   validates :name , presence:true
   validates :date , presence:true
   validates :place , presence:true
+  validates :total_tickets, presence:true
   def attendees
     self.total_tickets - self.remaining_tickets 
   end

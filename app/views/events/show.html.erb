@@ -50,7 +50,7 @@
 				  </thead>
 				
 				  <tbody>
-				    <% @discussions.each do |discussion| %>
+				    <% @event.discussions.each do |discussion| %>
 				      <tr>
 				        <td><%= link_to discussion.topic, discussion %></td>
 				        <td><%= discussion.description %></td>
@@ -67,7 +67,7 @@
 				
 				<br>
 				
-				<%= link_to 'New Discussion', new_discussion_path %>
+				<%= link_to 'New Discussion', new_discussion_path(@event.id) %>
 		</div>
 	</div>
 	
@@ -96,12 +96,12 @@
 		<% end %>
 	</div>
 	<div id="ticketing">
-		</br>Ticket Price: <%= @event.price %></br></br>
+		</br>Ticket Price: <%= @event.price || 'Free' %></br></br>
 		Sale Location: <%= @event.salesLocation %></br>
 		<div id="terms">
-			
+			<%= @event.termsConditions%>
 		</div>
-		Follow</br></br>
+		</br></br>
 		<% if (@curr_club.users.include? current_user) || (!@event.memberOnly)%>
 
 			<%= form_tag(reserve_event_path, method:"get", multipart: true) do %>
