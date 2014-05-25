@@ -4,7 +4,12 @@ class DashboardController < ApplicationController
     # this action is the default fallthrough for anyone accessing Dashboard.
     # debugger
     @clubs = current_user.clubs
-    @events = current_user.events
+    @reserved_events = ReserveTicket.where(user_id: current_user.id)
+    @events ||= [] 
+    @reserved_events.each do |event|
+      item = Event.where(id: event.event_id).take
+      @events << item
+    end
     # @announcements # App-Wide Announcement
   end
 

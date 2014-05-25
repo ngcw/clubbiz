@@ -40,6 +40,7 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
     @event.remaining_tickets = params[:event][:total_tickets]
+    @club = Club.where(id: params[:event][:club_id]).take
     respond_to do |format|
       if @event.save
         format.html { redirect_to @event, notice: 'Event was successfully created.' }
